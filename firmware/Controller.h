@@ -23,6 +23,7 @@ public:
   void setBridgePolarity(int bridge, bool positive);
   void closeBridge(int bridge);
   void openBridge(int bridge);
+  int getDigitalInput(int digital_input);
 private:
   ModularDevice::ModularServer modular_server_;
   SavedVariable saved_variables_[constants::SAVED_VARIABLE_COUNT_MAX];

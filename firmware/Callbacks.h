@@ -19,6 +19,8 @@ namespace callbacks
 {
 void pulseCallback();
 
+void getDigitalInputCallback();
+
 // EventController Callbacks
 void closeBridgeEventCallback(int bridge);
 

@@ -24,6 +24,8 @@ const int pwm_pins[BRIDGE_COUNT] = {3,11};
 const int brake_pins[BRIDGE_COUNT] = {9,8};
 const int sense_pins[BRIDGE_COUNT] = {0,1};
 
+const int di_pins[DIGITAL_INPUT_COUNT] = {4};
+
 const uint32_t duration_min = 1;
 const uint32_t duration_max = 0x7FFFFFFF;
 
@@ -36,6 +38,8 @@ CONSTANT_STRING(duration_units_name,"ms");
 CONSTANT_STRING(bridge_parameter_name,"bridge");
 CONSTANT_STRING(positive_parameter_name,"positive");
 CONSTANT_STRING(duration_parameter_name,"duration");
+CONSTANT_STRING(digital_input_parameter_name,"digital_input");
 
 CONSTANT_STRING(pulse_method_name,"pulse");
+CONSTANT_STRING(get_digital_input_method_name,"getDigitalInput");
 }

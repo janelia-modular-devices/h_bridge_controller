@@ -13,11 +13,12 @@
 namespace constants
 {
 enum {BRIDGE_COUNT=2};
+enum {DIGITAL_INPUT_COUNT=1};
 
 //MAX values must be >= 1, >= created/copied count, < RAM limit
 enum{SAVED_VARIABLE_COUNT_MAX=1};
-enum{PARAMETER_COUNT_MAX=3};
-enum{METHOD_COUNT_MAX=1};
+enum{PARAMETER_COUNT_MAX=4};
+enum{METHOD_COUNT_MAX=2};
 
 extern const unsigned int baudrate;
 
@@ -32,6 +33,8 @@ extern const int pwm_pins[BRIDGE_COUNT];
 extern const int brake_pins[BRIDGE_COUNT];
 extern const int sense_pins[BRIDGE_COUNT];
 
+extern const int di_pins[DIGITAL_INPUT_COUNT];
+
 extern const uint32_t duration_min;
 extern const uint32_t duration_max;
 
@@ -44,7 +47,9 @@ extern ConstantString duration_units_name;
 extern ConstantString bridge_parameter_name;
 extern ConstantString positive_parameter_name;
 extern ConstantString duration_parameter_name;
+extern ConstantString digital_input_parameter_name;
 
 extern ConstantString pulse_method_name;
+extern ConstantString get_digital_input_method_name;
 }
 #endif

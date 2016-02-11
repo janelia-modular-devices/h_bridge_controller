@@ -25,6 +25,12 @@ void Controller::setup()
     digitalWrite(constants::brake_pins[bridge],LOW);
   }
 
+  for (int digital_input=0; digital_input<constants::DIGITAL_INPUT_COUNT; ++digital_input)
+  {
+    pinMode(constants::di_pins[digital_input],INPUT);
+    digitalWrite(constants::di_pins[digital_input],HIGH);
+  }
+
   // Device Info
   modular_server_.setName(constants::device_name);
   modular_server_.setModelNumber(constants::model_number);
@@ -51,12 +57,20 @@ void Controller::setup()
   duration_parameter.setRange(constants::duration_min,constants::duration_max);
   duration_parameter.setUnits(constants::duration_units_name);
 
+  ModularDevice::Parameter& digital_input_parameter = modular_server_.createParameter(constants::digital_input_parameter_name);
+  digital_input_parameter.setRange(0,constants::DIGITAL_INPUT_COUNT-1);
+
   // Methods
   ModularDevice::Method& pulse_method = modular_server_.createMethod(constants::pulse_method_name);
   pulse_method.attachCallback(callbacks::pulseCallback);
   pulse_method.addParameter(bridge_parameter);
   pulse_method.addParameter(positive_parameter);
   pulse_method.addParameter(duration_parameter);
+
+  ModularDevice::Method& get_digital_input_method = modular_server_.createMethod(constants::get_digital_input_method_name);
+  get_digital_input_method.attachCallback(callbacks::getDigitalInputCallback);
+  get_digital_input_method.addParameter(digital_input_parameter);
+  get_digital_input_method.setReturnTypeBool();
 
   // Setup Streams
   Serial.begin(constants::baudrate);
@@ -113,6 +127,11 @@ void Controller::closeBridge(int bridge)
 void Controller::openBridge(int bridge)
 {
   digitalWrite(constants::pwm_pins[bridge],LOW);
+}
+
+int Controller::getDigitalInput(int digital_input)
+{
+  return digitalRead(constants::di_pins[digital_input]);
 }
 
 Controller controller;

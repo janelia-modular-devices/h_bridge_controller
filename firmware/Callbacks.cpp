@@ -44,6 +44,14 @@ void pulseCallback()
                                                         bridge);
 }
 
+void getDigitalInputCallback()
+{
+  long digital_input = modular_server.getParameterValue(constants::digital_input_parameter_name);
+  int input_value = controller.getDigitalInput(digital_input);
+  bool result = (input_value == HIGH ? true : false);
+  modular_server.writeResultToResponse(result);
+}
+
 // EventController Callbacks
 void closeBridgeEventCallback(int bridge)
 {
