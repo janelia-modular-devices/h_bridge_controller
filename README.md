@@ -1,4 +1,4 @@
-#motor_controller
+#h_bridge_controller
 
 Authors:
 
