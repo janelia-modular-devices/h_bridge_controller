@@ -6,23 +6,12 @@
 // ----------------------------------------------------------------------------
 #include "Controller.h"
 
-Controller::Controller() :
-  PowerSwitch(constants::cs_pin,constants::in_pin),
-  standalone_interface_(Standalone::StandaloneInterface(constants::display_serial,
-                                                        constants::enc_a_pin,
-                                                        constants::enc_b_pin,
-                                                        constants::enc_btn_pin,
-                                                        constants::enc_btn_int,
-                                                        constants::btn_pin,
-                                                        constants::btn_int,
-                                                        constants::lights_pin,
-                                                        constants::standalone_update_period))
+Controller::Controller()
 {
 }
 
 void Controller::setup()
 {
-  PowerSwitch::setup(constants::ic_count);
   EventController::event_controller.setup();
 
   // Pin Setup

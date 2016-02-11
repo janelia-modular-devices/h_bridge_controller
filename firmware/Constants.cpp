@@ -12,7 +12,7 @@ namespace constants
 {
 const unsigned int baudrate = 9600;
 
-const unsigned int model_number = 1110;
+const unsigned int model_number = 1170;
 
 // Use semantic versioning http://semver.org/
 const unsigned char firmware_major = 0;
@@ -116,7 +116,7 @@ CONSTANT_STRING(hold_dsp_lbl_str,"hold");
 CONSTANT_STRING(duty_dsp_lbl_str,"dc%");
 CONSTANT_STRING(dur_dsp_lbl_str,"dur");
 
-CONSTANT_STRING(device_name,"power_switch_controller");
+CONSTANT_STRING(device_name,"motor_controller");
 
 CONSTANT_STRING(duration_units_name,"ms");
 CONSTANT_STRING(frequency_units_name,"Hz");
