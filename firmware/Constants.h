@@ -13,7 +13,8 @@
 namespace constants
 {
 enum {BRIDGE_COUNT=2};
-enum {DIGITAL_INPUT_COUNT=1};
+enum {DIGITAL_INPUT_COUNT=2};
+enum {DIGITAL_OUTPUT_COUNT=2};
 
 //MAX values must be >= 1, >= created/copied count, < RAM limit
 enum{SAVED_VARIABLE_COUNT_MAX=1};
@@ -34,6 +35,7 @@ extern const int brake_pins[BRIDGE_COUNT];
 extern const int sense_pins[BRIDGE_COUNT];
 
 extern const int di_pins[DIGITAL_INPUT_COUNT];
+extern const int do_pins[DIGITAL_OUTPUT_COUNT];
 
 extern const uint32_t duration_min;
 extern const uint32_t duration_max;

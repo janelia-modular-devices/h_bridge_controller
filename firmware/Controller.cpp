@@ -31,6 +31,16 @@ void Controller::setup()
     digitalWrite(constants::di_pins[digital_input],HIGH);
   }
 
+  for (int digital_output=0; digital_output<constants::DIGITAL_OUTPUT_COUNT; ++digital_output)
+  {
+    pinMode(constants::do_pins[digital_output],OUTPUT);
+    digitalWrite(constants::do_pins[digital_output],LOW);
+    output_state_[digital_output] = LOW;
+  }
+
+  attachInterrupt(digitalPinToInterrupt(constants::di_pins[0]),callbacks::toggle0Callback,CHANGE);
+  attachInterrupt(digitalPinToInterrupt(constants::di_pins[1]),callbacks::toggle1Callback,CHANGE);
+
   // Device Info
   modular_server_.setName(constants::device_name);
   modular_server_.setModelNumber(constants::model_number);
@@ -132,6 +142,12 @@ void Controller::openBridge(int bridge)
 int Controller::getDigitalInput(int digital_input)
 {
   return digitalRead(constants::di_pins[digital_input]);
+}
+
+void Controller::toggleDigitalOutput(int digital_output)
+{
+  output_state_[digital_output] = !output_state_[digital_output];
+  digitalWrite(constants::do_pins[digital_output],output_state_[digital_output]);
 }
 
 Controller controller;

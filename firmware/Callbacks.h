@@ -21,6 +21,11 @@ void pulseCallback();
 
 void getDigitalInputCallback();
 
+// Interrupt Callbacks
+void toggle0Callback();
+
+void toggle1Callback();
+
 // EventController Callbacks
 void closeBridgeEventCallback(int bridge);
 

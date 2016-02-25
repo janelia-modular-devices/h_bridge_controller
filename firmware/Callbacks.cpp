@@ -52,6 +52,17 @@ void getDigitalInputCallback()
   modular_server.writeResultToResponse(result);
 }
 
+// Interrupt Callbacks
+void toggle0Callback()
+{
+  controller.toggleDigitalOutput(0);
+}
+
+void toggle1Callback()
+{
+  controller.toggleDigitalOutput(1);
+}
+
 // EventController Callbacks
 void closeBridgeEventCallback(int bridge)
 {

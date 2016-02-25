@@ -24,7 +24,8 @@ const int pwm_pins[BRIDGE_COUNT] = {3,11};
 const int brake_pins[BRIDGE_COUNT] = {9,8};
 const int sense_pins[BRIDGE_COUNT] = {0,1};
 
-const int di_pins[DIGITAL_INPUT_COUNT] = {4};
+const int di_pins[DIGITAL_INPUT_COUNT] = {21,20};
+const int do_pins[DIGITAL_OUTPUT_COUNT] = {4,5};
 
 const uint32_t duration_min = 1;
 const uint32_t duration_max = 0x7FFFFFFF;

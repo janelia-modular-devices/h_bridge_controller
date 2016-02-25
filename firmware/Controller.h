@@ -24,12 +24,13 @@ public:
   void closeBridge(int bridge);
   void openBridge(int bridge);
   int getDigitalInput(int digital_input);
+  void toggleDigitalOutput(int digital_output);
 private:
   ModularDevice::ModularServer modular_server_;
   SavedVariable saved_variables_[constants::SAVED_VARIABLE_COUNT_MAX];
   ModularDevice::Parameter parameters_[constants::PARAMETER_COUNT_MAX];
   ModularDevice::Method methods_[constants::METHOD_COUNT_MAX];
-
+  volatile int output_state_[constants::DIGITAL_OUTPUT_COUNT];
 };
 
 extern Controller controller;
