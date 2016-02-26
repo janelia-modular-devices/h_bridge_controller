@@ -16,6 +16,8 @@
 #include "Callbacks.h"
 #include "Controller.h"
 
+#include "IndexedContainer.h"
+
 
 // See README.md for more information
 

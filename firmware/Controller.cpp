@@ -18,7 +18,8 @@ void Controller::setup()
   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
   {
     pinMode(constants::dir_pins[bridge],OUTPUT);
-    digitalWrite(constants::dir_pins[bridge],LOW);
+    setBridgePolarity(bridge,false);
+    bridge_polarity_[bridge] = false;
     pinMode(constants::pwm_pins[bridge],OUTPUT);
     digitalWrite(constants::pwm_pins[bridge],LOW);
     pinMode(constants::brake_pins[bridge],OUTPUT);
@@ -67,6 +68,17 @@ void Controller::setup()
   duration_parameter.setRange(constants::duration_min,constants::duration_max);
   duration_parameter.setUnits(constants::duration_units_name);
 
+  ModularDevice::Parameter& on_duration_parameter = modular_server_.createParameter(constants::on_duration_parameter_name);
+  on_duration_parameter.setRange(constants::duration_min,constants::duration_max);
+  on_duration_parameter.setUnits(constants::duration_units_name);
+
+  ModularDevice::Parameter& period_parameter = modular_server_.createParameter(constants::period_parameter_name);
+  period_parameter.setRange(constants::duration_min,constants::duration_max);
+  period_parameter.setUnits(constants::duration_units_name);
+
+  ModularDevice::Parameter& count_parameter = modular_server_.createParameter(constants::count_parameter_name);
+  count_parameter.setRange(constants::duration_min,constants::duration_max);
+
   ModularDevice::Parameter& digital_input_parameter = modular_server_.createParameter(constants::digital_input_parameter_name);
   digital_input_parameter.setRange(0,constants::DIGITAL_INPUT_COUNT-1);
 
@@ -76,6 +88,13 @@ void Controller::setup()
   pulse_method.addParameter(bridge_parameter);
   pulse_method.addParameter(positive_parameter);
   pulse_method.addParameter(duration_parameter);
+
+  ModularDevice::Method& add_pwm_period_on_duration_method = modular_server_.createMethod(constants::add_pwm_period_on_duration_method_name);
+  add_pwm_period_on_duration_method.attachCallback(callbacks::addPwmPeriodOnDurationCallback);
+  add_pwm_period_on_duration_method.addParameter(bridge_parameter);
+  add_pwm_period_on_duration_method.addParameter(period_parameter);
+  add_pwm_period_on_duration_method.addParameter(on_duration_parameter);
+  add_pwm_period_on_duration_method.addParameter(count_parameter);
 
   ModularDevice::Method& get_digital_input_method = modular_server_.createMethod(constants::get_digital_input_method_name);
   get_digital_input_method.attachCallback(callbacks::getDigitalInputCallback);
@@ -127,6 +146,13 @@ void Controller::setBridgePolarity(int bridge, bool positive)
   {
     digitalWrite(constants::dir_pins[bridge],LOW);
   }
+  bridge_polarity_[bridge] = positive;
+}
+
+void Controller::toggleBridgePolarity(int bridge)
+{
+  bridge_polarity_[bridge] = !bridge_polarity_[bridge];
+  setBridgePolarity(bridge,bridge_polarity_[bridge]);
 }
 
 void Controller::closeBridge(int bridge)

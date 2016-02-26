@@ -21,6 +21,7 @@ public:
   ModularDevice::ModularServer& getModularServer();
 
   void setBridgePolarity(int bridge, bool positive);
+  void toggleBridgePolarity(int bridge);
   void closeBridge(int bridge);
   void openBridge(int bridge);
   int getDigitalInput(int digital_input);
@@ -30,6 +31,7 @@ private:
   SavedVariable saved_variables_[constants::SAVED_VARIABLE_COUNT_MAX];
   ModularDevice::Parameter parameters_[constants::PARAMETER_COUNT_MAX];
   ModularDevice::Method methods_[constants::METHOD_COUNT_MAX];
+  volatile bool bridge_polarity_[constants::BRIDGE_COUNT];
   volatile int output_state_[constants::DIGITAL_OUTPUT_COUNT];
 };
 

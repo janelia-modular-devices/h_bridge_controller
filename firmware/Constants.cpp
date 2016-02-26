@@ -39,8 +39,12 @@ CONSTANT_STRING(duration_units_name,"ms");
 CONSTANT_STRING(bridge_parameter_name,"bridge");
 CONSTANT_STRING(positive_parameter_name,"positive");
 CONSTANT_STRING(duration_parameter_name,"duration");
+CONSTANT_STRING(on_duration_parameter_name,"on_duration");
+CONSTANT_STRING(period_parameter_name,"period");
+CONSTANT_STRING(count_parameter_name,"count");
 CONSTANT_STRING(digital_input_parameter_name,"digital_input");
 
 CONSTANT_STRING(pulse_method_name,"pulse");
+CONSTANT_STRING(add_pwm_period_on_duration_method_name,"addPwmPeriodOnDuration");
 CONSTANT_STRING(get_digital_input_method_name,"getDigitalInput");
 }

@@ -27,6 +27,8 @@ namespace callbacks
 
 ModularDevice::ModularServer& modular_server = controller.getModularServer();
 
+IndexedContainer<uint32_t,constants::INDEXED_BRIDGES_COUNT_MAX> indexed_bridges;
+
 void pulseCallback()
 {
   long bridge = modular_server.getParameterValue(constants::bridge_parameter_name);
@@ -42,6 +44,27 @@ void pulseCallback()
                                                         close_event_id,
                                                         duration,
                                                         bridge);
+}
+
+void addPwmPeriodOnDurationCallback()
+{
+  if (indexed_bridges.full())
+  {
+    return;
+  }
+  long bridge = modular_server.getParameterValue(constants::bridge_parameter_name);
+  long period = modular_server.getParameterValue(constants::period_parameter_name);
+  long on_duration = modular_server.getParameterValue(constants::on_duration_parameter_name);
+  long count = modular_server.getParameterValue(constants::count_parameter_name);
+  EventController::event_controller.addPwmUsingDelayPeriodOnDuration(toggleCloseBridgeEventCallback,
+                                                                     openBridgeEventCallback,
+                                                                     constants::start_delay,
+                                                                     period,
+                                                                     on_duration,
+                                                                     count,
+                                                                     bridge,
+                                                                     NULL,
+                                                                     removeIndexedBridgeCallback);
 }
 
 void getDigitalInputCallback()
@@ -64,6 +87,12 @@ void toggle1Callback()
 }
 
 // EventController Callbacks
+void toggleCloseBridgeEventCallback(int bridge)
+{
+  controller.toggleBridgePolarity(bridge);
+  controller.closeBridge(bridge);
+}
+
 void closeBridgeEventCallback(int bridge)
 {
   controller.closeBridge(bridge);
@@ -72,6 +101,10 @@ void closeBridgeEventCallback(int bridge)
 void openBridgeEventCallback(int bridge)
 {
   controller.openBridge(bridge);
+}
+
+void removeIndexedBridgeCallback(int index)
+{
 }
 
 }
