@@ -47,4 +47,5 @@ CONSTANT_STRING(digital_input_parameter_name,"digital_input");
 CONSTANT_STRING(pulse_method_name,"pulse");
 CONSTANT_STRING(add_pwm_period_on_duration_method_name,"addPwmPeriodOnDuration");
 CONSTANT_STRING(get_digital_input_method_name,"getDigitalInput");
+CONSTANT_STRING(toggle_digital_output_method_name,"toggleDigitalOutput");
 }

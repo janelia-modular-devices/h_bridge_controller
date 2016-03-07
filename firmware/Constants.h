@@ -58,5 +58,6 @@ extern ConstantString digital_input_parameter_name;
 extern ConstantString pulse_method_name;
 extern ConstantString add_pwm_period_on_duration_method_name;
 extern ConstantString get_digital_input_method_name;
+extern ConstantString toggle_digital_output_method_name;
 }
 #endif

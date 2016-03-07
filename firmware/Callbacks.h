@@ -24,18 +24,31 @@ void addPwmPeriodOnDurationCallback();
 
 void getDigitalInputCallback();
 
+void toggleDigitalOutputCallback();
+
 // Interrupt Callbacks
 void toggle0Callback();
 
 void toggle1Callback();
 
+void togglePulseBridgesCallback();
+
 // EventController Callbacks
 void toggleCloseBridgeEventCallback(int bridge);
+
+void toggleCloseBridgesEventCallback(int index);
 
 void closeBridgeEventCallback(int bridge);
 
 void openBridgeEventCallback(int bridge);
 
+void openBridgesEventCallback(int index);
+
 void removeIndexedBridgeCallback(int index);
+
+void ledOnEventCallback(int index);
+
+void ledOffEventCallback(int index);
+
 }
 #endif

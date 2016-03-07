@@ -18,8 +18,16 @@ void Controller::setup()
   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
   {
     pinMode(constants::dir_pins[bridge],OUTPUT);
-    setBridgePolarity(bridge,false);
-    bridge_polarity_[bridge] = false;
+    if ((bridge%2) == 0)
+    {
+      setBridgePolarity(bridge,false);
+      bridge_polarity_[bridge] = false;
+    }
+    else
+    {
+      setBridgePolarity(bridge,true);
+      bridge_polarity_[bridge] = true;
+    }
     pinMode(constants::pwm_pins[bridge],OUTPUT);
     digitalWrite(constants::pwm_pins[bridge],LOW);
     pinMode(constants::brake_pins[bridge],OUTPUT);
@@ -39,8 +47,8 @@ void Controller::setup()
     output_state_[digital_output] = LOW;
   }
 
-  attachInterrupt(digitalPinToInterrupt(constants::di_pins[0]),callbacks::toggle0Callback,CHANGE);
-  attachInterrupt(digitalPinToInterrupt(constants::di_pins[1]),callbacks::toggle1Callback,CHANGE);
+  attachInterrupt(digitalPinToInterrupt(constants::di_pins[0]),callbacks::togglePulseBridgesCallback,FALLING);
+  attachInterrupt(digitalPinToInterrupt(constants::di_pins[1]),callbacks::togglePulseBridgesCallback,FALLING);
 
   // Device Info
   modular_server_.setName(constants::device_name);
@@ -101,6 +109,9 @@ void Controller::setup()
   get_digital_input_method.addParameter(digital_input_parameter);
   get_digital_input_method.setReturnTypeBool();
 
+  ModularDevice::Method& toggle_digital_output_method = modular_server_.createMethod(constants::toggle_digital_output_method_name);
+  toggle_digital_output_method.attachCallback(callbacks::toggleDigitalOutputCallback);
+
   // Setup Streams
   Serial.begin(constants::baudrate);
 
@@ -155,14 +166,39 @@ void Controller::toggleBridgePolarity(int bridge)
   setBridgePolarity(bridge,bridge_polarity_[bridge]);
 }
 
+void Controller::toggleBridgesPolarity()
+{
+  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+  {
+    bridge_polarity_[bridge] = !bridge_polarity_[bridge];
+    setBridgePolarity(bridge,bridge_polarity_[bridge]);
+  }
+}
+
 void Controller::closeBridge(int bridge)
 {
   digitalWrite(constants::pwm_pins[bridge],HIGH);
 }
 
+void Controller::closeBridges()
+{
+  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+  {
+    closeBridge(bridge);
+  }
+}
+
 void Controller::openBridge(int bridge)
 {
   digitalWrite(constants::pwm_pins[bridge],LOW);
+}
+
+void Controller::openBridges()
+{
+  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+  {
+    openBridge(bridge);
+  }
 }
 
 int Controller::getDigitalInput(int digital_input)
@@ -172,7 +208,7 @@ int Controller::getDigitalInput(int digital_input)
 
 void Controller::toggleDigitalOutput(int digital_output)
 {
-  output_state_[digital_output] = !output_state_[digital_output];
+  output_state_[digital_output] = ((output_state_[digital_output] == LOW) ? HIGH : LOW);
   digitalWrite(constants::do_pins[digital_output],output_state_[digital_output]);
 }
 

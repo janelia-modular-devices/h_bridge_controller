@@ -29,6 +29,8 @@ ModularDevice::ModularServer& modular_server = controller.getModularServer();
 
 IndexedContainer<uint32_t,constants::INDEXED_BRIDGES_COUNT_MAX> indexed_bridges;
 
+volatile bool pulsing = false;
+
 void pulseCallback()
 {
   long bridge = modular_server.getParameterValue(constants::bridge_parameter_name);
@@ -75,6 +77,11 @@ void getDigitalInputCallback()
   modular_server.writeResultToResponse(result);
 }
 
+void toggleDigitalOutputCallback()
+{
+  controller.toggleDigitalOutput(0);
+}
+
 // Interrupt Callbacks
 void toggle0Callback()
 {
@@ -86,11 +93,34 @@ void toggle1Callback()
   controller.toggleDigitalOutput(1);
 }
 
+void togglePulseBridgesCallback()
+{
+  if (!pulsing)
+  {
+    pulsing = true;
+    EventController::event_controller.addPwmUsingDelayPeriodOnDuration(toggleCloseBridgesEventCallback,
+                                                                       openBridgesEventCallback,
+                                                                       10,
+                                                                       25,
+                                                                       4,
+                                                                       1,
+                                                                       0,
+                                                                       NULL,
+                                                                       removeIndexedBridgeCallback);
+  }
+}
+
 // EventController Callbacks
 void toggleCloseBridgeEventCallback(int bridge)
 {
   controller.toggleBridgePolarity(bridge);
   controller.closeBridge(bridge);
+}
+
+void toggleCloseBridgesEventCallback(int index)
+{
+  controller.toggleBridgesPolarity();
+  controller.closeBridges();
 }
 
 void closeBridgeEventCallback(int bridge)
@@ -103,8 +133,24 @@ void openBridgeEventCallback(int bridge)
   controller.openBridge(bridge);
 }
 
+void openBridgesEventCallback(int index)
+{
+  controller.openBridges();
+}
+
 void removeIndexedBridgeCallback(int index)
 {
+  pulsing = false;
+}
+
+void ledOnEventCallback(int index)
+{
+  digitalWrite(13,HIGH);
+}
+
+void ledOffEventCallback(int index)
+{
+  digitalWrite(13,LOW);
 }
 
 }

@@ -22,8 +22,11 @@ public:
 
   void setBridgePolarity(int bridge, bool positive);
   void toggleBridgePolarity(int bridge);
+  void toggleBridgesPolarity();
   void closeBridge(int bridge);
+  void closeBridges();
   void openBridge(int bridge);
+  void openBridges();
   int getDigitalInput(int digital_input);
   void toggleDigitalOutput(int digital_output);
 private:
