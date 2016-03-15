@@ -1,4 +1,3 @@
-// h_bridge_controller
 #include "Flash.h"
 #include <EEPROM.h>
 #include "Streaming.h"
