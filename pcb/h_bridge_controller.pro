@@ -11,7 +11,7 @@ version=1
 [pcbnew]
 version=1
 PageLayoutDescrFile=
-LastNetListRead=h_bridge_controller.net
+LastNetListRead=relay_controller.net
 UseCmpFile=0
 PadDrill=0.889
 PadDrillOvalY=0.889
@@ -32,7 +32,7 @@ ModuleOutlineThickness=0.381
 version=1
 LibDir=
 [eeschema/libraries]
-LibName1=h_bridge_controller-rescue
+LibName1=relay_controller-rescue
 LibName2=power
 LibName3=device
 LibName4=transistors
@@ -62,7 +62,7 @@ LibName27=opto
 LibName28=atmel
 LibName29=contrib
 LibName30=valves
-LibName31=h_bridge_controller
+LibName31=relay_controller
 LibName32=/home/polidorop/git/kicad/kicad-libraries/components
 [schematic_editor]
 version=1
