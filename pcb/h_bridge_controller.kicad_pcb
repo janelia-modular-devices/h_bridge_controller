@@ -14,7 +14,7 @@
 
   (page A4)
   (title_block
-    (title relay_controller)
+    (title h_bridge_controller)
     (rev 1.0)
   )
 
@@ -260,7 +260,7 @@
     (add_net VAA)
   )
 
-  (module relay_controller:DC_DC_CONV_R78C (layer F.Cu) (tedit 56D078D5) (tstamp 5480CA49)
+  (module h_bridge_controller:DC_DC_CONV_R78C (layer F.Cu) (tedit 56D078D5) (tstamp 5480CA49)
     (at 103.505 113.03 180)
     (path /5489CB72)
     (fp_text reference REG1 (at -6.985 -1.905 270) (layer F.SilkS)
@@ -281,7 +281,7 @@
       (net 1 VAA))
   )
 
-  (module relay_controller:DCJACK_2PIN_HIGHCURRENT (layer F.Cu) (tedit 5488CB56) (tstamp 5480C9FD)
+  (module h_bridge_controller:DCJACK_2PIN_HIGHCURRENT (layer F.Cu) (tedit 5488CB56) (tstamp 5480C9FD)
     (at 211.455 102.87 270)
     (path /5488FCDE)
     (fp_text reference P1 (at 6.35 1.27 360) (layer F.SilkS)
@@ -303,7 +303,7 @@
     (pad "" thru_hole oval (at 4.4958 5.0038 270) (size 3.556 5.08) (drill 2.6924) (layers *.Cu *.Mask F.SilkS))
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 5480C963)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 5480C963)
     (at 200.66 108.585)
     (tags "CMS SM")
     (path /56D083E8)
@@ -331,7 +331,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 5480C96F)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 5480C96F)
     (at 104.775 108.585 180)
     (tags "CMS SM")
     (path /548925C4)
@@ -359,7 +359,7 @@
     )
   )
 
-  (module relay_controller:BNC_DOUBLE (layer F.Cu) (tedit 56D078E1) (tstamp 56CF966E)
+  (module h_bridge_controller:BNC_DOUBLE (layer F.Cu) (tedit 56D078E1) (tstamp 56CF966E)
     (at 99.06 102.87 90)
     (path /54ADBC63)
     (fp_text reference P7 (at -8.636 -4.572 360) (layer F.SilkS)
@@ -403,7 +403,7 @@
       (net 2 GND))
   )
 
-  (module relay_controller:ARDUINO_MEGA_SHIELD (layer F.Cu) (tedit 56D06BD8) (tstamp 5488C98D)
+  (module h_bridge_controller:ARDUINO_MEGA_SHIELD (layer F.Cu) (tedit 56D06BD8) (tstamp 5488C98D)
     (at 97.79 129.54)
     (path /54AD3990)
     (fp_text reference ARDUINO1 (at 26.035 -41.275) (layer F.SilkS) hide
@@ -575,7 +575,7 @@
     (pad GND5 thru_hole oval (at 96.52 -7.62 90) (size 1.524 2.54) (drill 1.016 (offset 0 0.508)) (layers *.Cu *.Mask F.SilkS))
   )
 
-  (module relay_controller:SPST_SLIDE_AS (layer F.Cu) (tedit 56D0743B) (tstamp 56CFA2C6)
+  (module h_bridge_controller:SPST_SLIDE_AS (layer F.Cu) (tedit 56D0743B) (tstamp 56CFA2C6)
     (at 203.2 112.395 90)
     (path /56CFEB9B)
     (fp_text reference SW1 (at -3.048 6.604 180) (layer F.SilkS)
@@ -600,7 +600,7 @@
       (net 5 /LED_PWR))
   )
 
-  (module relay_controller:Header_3_Pin_SMD_RA (layer F.Cu) (tedit 56D07500) (tstamp 56CF961B)
+  (module h_bridge_controller:Header_3_Pin_SMD_RA (layer F.Cu) (tedit 56D07500) (tstamp 56CF961B)
     (at 96.139 85.217 90)
     (path /56CE8FE8)
     (fp_text reference P2 (at -5.715 6.985 90) (layer F.SilkS)
@@ -629,7 +629,7 @@
       (solder_mask_margin 0.1016) (clearance 0.1016))
   )
 
-  (module relay_controller:Header_3_Pin_SMD_RA (layer B.Cu) (tedit 56D07500) (tstamp 56CF962C)
+  (module h_bridge_controller:Header_3_Pin_SMD_RA (layer B.Cu) (tedit 56D07500) (tstamp 56CF962C)
     (at 203.835 79.375 180)
     (path /56CEA77A)
     (fp_text reference P3 (at -5.715 -6.985 180) (layer B.SilkS)
@@ -658,7 +658,7 @@
       (solder_mask_margin 0.1016) (clearance 0.1016))
   )
 
-  (module relay_controller:Header_3_Pin_SMD_RA (layer F.Cu) (tedit 56D07500) (tstamp 56CF963D)
+  (module h_bridge_controller:Header_3_Pin_SMD_RA (layer F.Cu) (tedit 56D07500) (tstamp 56CF963D)
     (at 208.915 85.09 270)
     (path /56CEA9F2)
     (fp_text reference P4 (at -5.715 6.985 270) (layer F.SilkS)
@@ -687,7 +687,7 @@
       (solder_mask_margin 0.1016) (clearance 0.1016))
   )
 
-  (module relay_controller:Header_3_Pin_SMD_RA (layer B.Cu) (tedit 56D07500) (tstamp 56CF964E)
+  (module h_bridge_controller:Header_3_Pin_SMD_RA (layer B.Cu) (tedit 56D07500) (tstamp 56CF964E)
     (at 203.835 126.365)
     (path /56CEAAE8)
     (fp_text reference P5 (at -5.715 -6.985) (layer B.SilkS)
@@ -716,7 +716,7 @@
       (solder_mask_margin 0.1016) (clearance 0.1016))
   )
 
-  (module relay_controller:Header_2_Pin_SMD_RA (layer F.Cu) (tedit 56D71283) (tstamp 56CF965F)
+  (module h_bridge_controller:Header_2_Pin_SMD_RA (layer F.Cu) (tedit 56D71283) (tstamp 56CF965F)
     (at 203.835 127.635 180)
     (path /56CF00ED)
     (fp_text reference P6 (at -5.715 6.985 360) (layer F.SilkS)
@@ -743,7 +743,7 @@
       (solder_mask_margin 0.1016) (clearance 0.1016))
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 56D09E85)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 56D09E85)
     (at 102.235 117.475)
     (tags "CMS SM")
     (path /54892682)
@@ -771,7 +771,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 57041BC2) (tstamp 57041894)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 57041BC2) (tstamp 57041894)
     (at 201.295 90.805 180)
     (tags "CMS SM")
     (path /57040D89)
@@ -799,7 +799,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 57041BD8) (tstamp 570418A0)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 57041BD8) (tstamp 570418A0)
     (at 201.295 97.155)
     (tags "CMS SM")
     (path /57040DDE)
@@ -827,7 +827,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418AC)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418AC)
     (at 120.015 99.06)
     (tags "CMS SM")
     (path /5702DD5E)
@@ -855,7 +855,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418B8)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418B8)
     (at 140.335 99.06)
     (tags "CMS SM")
     (path /5704514B)
@@ -883,7 +883,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418C4)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418C4)
     (at 160.655 99.06)
     (tags "CMS SM")
     (path /57045CBA)
@@ -911,7 +911,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418D0)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418D0)
     (at 180.975 99.06)
     (tags "CMS SM")
     (path /57045CE6)
@@ -939,7 +939,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418DC)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418DC)
     (at 120.015 120.65)
     (tags "CMS SM")
     (path /57046466)
@@ -967,7 +967,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418E8)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418E8)
     (at 140.335 120.65)
     (tags "CMS SM")
     (path /57046492)
@@ -995,7 +995,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418F4)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 570418F4)
     (at 160.655 120.65)
     (tags "CMS SM")
     (path /570464BE)
@@ -1023,7 +1023,7 @@
     )
   )
 
-  (module relay_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 57041900)
+  (module h_bridge_controller:SM1210 (layer B.Cu) (tedit 5481F170) (tstamp 57041900)
     (at 180.975 120.65)
     (tags "CMS SM")
     (path /570464EA)
@@ -1051,7 +1051,7 @@
     )
   )
 
-  (module relay_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 57041951)
+  (module h_bridge_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 57041951)
     (at 120.015 86.995 270)
     (path /5702DD02)
     (fp_text reference U1 (at -4.445 4.445 270) (layer B.SilkS)
@@ -1078,7 +1078,7 @@
       (net 40 /OUT_0+))
   )
 
-  (module relay_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 5704195F)
+  (module h_bridge_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 5704195F)
     (at 140.335 86.995 270)
     (path /57045142)
     (fp_text reference U2 (at -4.445 4.445 270) (layer B.SilkS)
@@ -1105,7 +1105,7 @@
       (net 42 /OUT_1+))
   )
 
-  (module relay_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 5704196D)
+  (module h_bridge_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 5704196D)
     (at 160.655 86.995 270)
     (path /57045CB1)
     (fp_text reference U3 (at -4.445 4.445 270) (layer B.SilkS)
@@ -1132,7 +1132,7 @@
       (net 44 /OUT_2+))
   )
 
-  (module relay_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 5704197B)
+  (module h_bridge_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 5704197B)
     (at 180.975 86.995 270)
     (path /57045CDD)
     (fp_text reference U4 (at -4.445 4.445 270) (layer B.SilkS)
@@ -1159,7 +1159,7 @@
       (net 46 /OUT_3+))
   )
 
-  (module relay_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 57041997)
+  (module h_bridge_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 57041997)
     (at 120.015 108.585 270)
     (path /5704645D)
     (fp_text reference U5 (at -4.445 4.445 270) (layer B.SilkS)
@@ -1186,7 +1186,7 @@
       (net 48 /OUT_4+))
   )
 
-  (module relay_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 570419A6)
+  (module h_bridge_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 570419A6)
     (at 140.335 108.585 270)
     (path /57046489)
     (fp_text reference U6 (at -4.445 4.445 270) (layer B.SilkS)
@@ -1213,7 +1213,7 @@
       (net 50 /OUT_5+))
   )
 
-  (module relay_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 570419B5)
+  (module h_bridge_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 570419B5)
     (at 160.655 108.585 270)
     (path /570464B5)
     (fp_text reference U7 (at -4.445 4.445 270) (layer B.SilkS)
@@ -1240,7 +1240,7 @@
       (net 52 /OUT_6+))
   )
 
-  (module relay_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 570419C4)
+  (module h_bridge_controller:ASSR-1611 (layer B.Cu) (tedit 56B24BF9) (tstamp 570419C4)
     (at 180.975 108.585 270)
     (path /570464E1)
     (fp_text reference U8 (at -4.445 4.445 270) (layer B.SilkS)
@@ -1267,7 +1267,7 @@
       (net 54 /OUT_7+))
   )
 
-  (module relay_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041888)
+  (module h_bridge_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041888)
     (at 180.975 123.19 90)
     (path /5704AE8A)
     (fp_text reference L9 (at 0 -5.08 360) (layer F.SilkS)
@@ -1288,7 +1288,7 @@
       (net 2 GND))
   )
 
-  (module relay_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 5704187C)
+  (module h_bridge_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 5704187C)
     (at 160.655 123.19 90)
     (path /5704AE81)
     (fp_text reference L8 (at 0 -5.08 360) (layer F.SilkS)
@@ -1309,7 +1309,7 @@
       (net 2 GND))
   )
 
-  (module relay_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041870)
+  (module h_bridge_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041870)
     (at 140.335 123.19 90)
     (path /5704AE64)
     (fp_text reference L7 (at 0 -5.08 360) (layer F.SilkS)
@@ -1330,7 +1330,7 @@
       (net 2 GND))
   )
 
-  (module relay_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041864)
+  (module h_bridge_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041864)
     (at 120.015 123.19 90)
     (path /5704AE5B)
     (fp_text reference L6 (at 0 -5.08 360) (layer F.SilkS)
@@ -1351,7 +1351,7 @@
       (net 2 GND))
   )
 
-  (module relay_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041858)
+  (module h_bridge_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041858)
     (at 180.975 101.6 90)
     (path /5704AB9A)
     (fp_text reference L5 (at 0 -5.08 360) (layer F.SilkS)
@@ -1372,7 +1372,7 @@
       (net 2 GND))
   )
 
-  (module relay_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 5704184C)
+  (module h_bridge_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 5704184C)
     (at 160.655 101.6 90)
     (path /5704AB91)
     (fp_text reference L4 (at 0 -5.08 360) (layer F.SilkS)
@@ -1393,7 +1393,7 @@
       (net 2 GND))
   )
 
-  (module relay_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041840)
+  (module h_bridge_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041840)
     (at 140.335 101.6 90)
     (path /5704AA2D)
     (fp_text reference L3 (at 0 -5.08 360) (layer F.SilkS)
@@ -1414,7 +1414,7 @@
       (net 2 GND))
   )
 
-  (module relay_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041834)
+  (module h_bridge_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041834)
     (at 120.015 101.6 90)
     (path /5704A7D6)
     (fp_text reference L2 (at 0 -5.08 360) (layer F.SilkS)
@@ -1435,7 +1435,7 @@
       (net 2 GND))
   )
 
-  (module relay_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041828)
+  (module h_bridge_controller:LED_555-3XXX (layer F.Cu) (tedit 57041B12) (tstamp 57041828)
     (at 201.93 93.98 270)
     (path /5702D59F)
     (fp_text reference L1 (at 0 -5.08 540) (layer F.SilkS)
@@ -1456,7 +1456,7 @@
       (net 2 GND))
   )
 
-  (module relay_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 57041950)
+  (module h_bridge_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 57041950)
     (at 180.975 116.205)
     (path /570464FE)
     (fp_text reference T8 (at -6.35 -1.905 90) (layer F.SilkS)
@@ -1475,7 +1475,7 @@
       (net 55 /OUT_7-))
   )
 
-  (module relay_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 57041946)
+  (module h_bridge_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 57041946)
     (at 160.655 116.205)
     (path /570464D2)
     (fp_text reference T7 (at -6.35 -1.905 90) (layer F.SilkS)
@@ -1494,7 +1494,7 @@
       (net 53 /OUT_6-))
   )
 
-  (module relay_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 5704193C)
+  (module h_bridge_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 5704193C)
     (at 140.335 116.205)
     (path /570464A6)
     (fp_text reference T6 (at -6.35 -1.905 90) (layer F.SilkS)
@@ -1513,7 +1513,7 @@
       (net 51 /OUT_5-))
   )
 
-  (module relay_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 57041932)
+  (module h_bridge_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 57041932)
     (at 120.015 116.205)
     (path /5704647A)
     (fp_text reference T5 (at -6.35 -1.905 90) (layer F.SilkS)
@@ -1532,7 +1532,7 @@
       (net 49 /OUT_4-))
   )
 
-  (module relay_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 57041928)
+  (module h_bridge_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 57041928)
     (at 180.975 94.615)
     (path /57045CFA)
     (fp_text reference T4 (at -6.35 -1.905 90) (layer F.SilkS)
@@ -1551,7 +1551,7 @@
       (net 47 /OUT_3-))
   )
 
-  (module relay_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 5704191E)
+  (module h_bridge_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 5704191E)
     (at 160.655 94.615)
     (path /57045CCE)
     (fp_text reference T3 (at -6.35 -1.905 90) (layer F.SilkS)
@@ -1570,7 +1570,7 @@
       (net 45 /OUT_2-))
   )
 
-  (module relay_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 57041914)
+  (module h_bridge_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 57041914)
     (at 140.335 94.615)
     (path /5704515F)
     (fp_text reference T2 (at -6.35 -1.905 90) (layer F.SilkS)
@@ -1589,7 +1589,7 @@
       (net 43 /OUT_1-))
   )
 
-  (module relay_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 5704190A)
+  (module h_bridge_controller:TERM_BLK_ANG_2_PIN (layer F.Cu) (tedit 57042026) (tstamp 5704190A)
     (at 120.015 94.615)
     (path /5702E600)
     (fp_text reference T1 (at -6.35 -1.905 90) (layer F.SilkS)
@@ -1717,7 +1717,7 @@
   (gr_text https://github.com/janelia-modular-devices (at 188.595 102.87 90) (layer F.SilkS)
     (effects (font (size 1.016 1.016) (thickness 0.1905)))
   )
-  (gr_text "Janelia Modular Device\nrelay_controller\nmodel_number: 1190\n04/2016 ver 1.0" (at 94.615 123.19) (layer F.SilkS)
+  (gr_text "Janelia Modular Device\nh_bridge_controller\nmodel_number: 1190\n04/2016 ver 1.0" (at 94.615 123.19) (layer F.SilkS)
     (effects (font (size 1.016 1.016) (thickness 0.254)) (justify left))
   )
 

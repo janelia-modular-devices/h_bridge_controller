@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <export version="D">
   <design>
-    <source>/home/polidorop/git/modular-devices/relay_controller/pcb/relay_controller.sch</source>
+    <source>/home/polidorop/git/modular-devices/h_bridge_controller/pcb/h_bridge_controller.sch</source>
     <date>Tue 05 Apr 2016 05:04:03 PM EDT</date>
     <tool>Eeschema 0.201603210401+6634~43~ubuntu14.04.1-product</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
-        <title>relay_controller</title>
+        <title>h_bridge_controller</title>
         <company>Janelia</company>
         <rev>1.0</rev>
         <date/>
-        <source>relay_controller.sch</source>
+        <source>h_bridge_controller.sch</source>
         <comment number="1" value=""/>
         <comment number="2" value=""/>
         <comment number="3" value=""/>
@@ -21,583 +21,583 @@
   <components>
     <comp ref="P1">
       <value>PWR_JACK_2.5x5.5</value>
-      <footprint>relay_controller:DCJACK_2PIN_HIGHCURRENT</footprint>
+      <footprint>h_bridge_controller:DCJACK_2PIN_HIGHCURRENT</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">CP-063BH-ND</field>
         <field name="Description">CONN PWR JACK DC 2.5X5.5 8A T/H</field>
       </fields>
-      <libsource lib="relay_controller" part="PWR_JACK_2.5x5.5"/>
+      <libsource lib="h_bridge_controller" part="PWR_JACK_2.5x5.5"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5488FCDE</tstamp>
     </comp>
     <comp ref="C2">
       <value>10uF</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">445-4536-1-ND</field>
         <field name="Description">CAP CER 10UF 50V 10% X7S 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="10uF"/>
+      <libsource lib="h_bridge_controller" part="10uF"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>548925C4</tstamp>
     </comp>
     <comp ref="C3">
       <value>10uF</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">445-4536-1-ND</field>
         <field name="Description">CAP CER 10UF 50V 10% X7S 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="10uF"/>
+      <libsource lib="h_bridge_controller" part="10uF"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>54892682</tstamp>
     </comp>
     <comp ref="REG1">
       <value>CONV_DC_DC_12V_1A</value>
-      <footprint>relay_controller:DC_DC_CONV_R78C</footprint>
+      <footprint>h_bridge_controller:DC_DC_CONV_R78C</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">945-1392-5-ND</field>
         <field name="Description">CONV DC/DC 1A 12V OUT SIP VERT</field>
       </fields>
-      <libsource lib="relay_controller" part="CONV_DC_DC_12V_1A"/>
+      <libsource lib="h_bridge_controller" part="CONV_DC_DC_12V_1A"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5489CB72</tstamp>
     </comp>
     <comp ref="P7">
       <value>BNC_DOUBLE_RA</value>
-      <footprint>relay_controller:BNC_DOUBLE</footprint>
+      <footprint>h_bridge_controller:BNC_DOUBLE</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">ACX1655-ND</field>
         <field name="Description">CONN BNC JACK R/A 75 OHM PCB</field>
       </fields>
-      <libsource lib="relay_controller" part="BNC_DOUBLE_RA"/>
+      <libsource lib="h_bridge_controller" part="BNC_DOUBLE_RA"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>54ADBC63</tstamp>
     </comp>
     <comp ref="P2">
       <value>HEADER_01X03_SMD_RA</value>
-      <footprint>relay_controller:Header_3_Pin_SMD_RA</footprint>
+      <footprint>h_bridge_controller:Header_3_Pin_SMD_RA</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">A100890CT-ND</field>
         <field name="Description">CONN HEADER 3POS R/A SMD GOLD</field>
       </fields>
-      <libsource lib="relay_controller" part="HEADER_01X03_SMD_RA"/>
+      <libsource lib="h_bridge_controller" part="HEADER_01X03_SMD_RA"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>56CE8FE8</tstamp>
     </comp>
     <comp ref="P3">
       <value>HEADER_01X03_SMD_RA</value>
-      <footprint>relay_controller:Header_3_Pin_SMD_RA</footprint>
+      <footprint>h_bridge_controller:Header_3_Pin_SMD_RA</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">A100890CT-ND</field>
         <field name="Description">CONN HEADER 3POS R/A SMD GOLD</field>
       </fields>
-      <libsource lib="relay_controller" part="HEADER_01X03_SMD_RA"/>
+      <libsource lib="h_bridge_controller" part="HEADER_01X03_SMD_RA"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>56CEA77A</tstamp>
     </comp>
     <comp ref="P4">
       <value>HEADER_01X03_SMD_RA</value>
-      <footprint>relay_controller:Header_3_Pin_SMD_RA</footprint>
+      <footprint>h_bridge_controller:Header_3_Pin_SMD_RA</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">A100890CT-ND</field>
         <field name="Description">CONN HEADER 3POS R/A SMD GOLD</field>
       </fields>
-      <libsource lib="relay_controller" part="HEADER_01X03_SMD_RA"/>
+      <libsource lib="h_bridge_controller" part="HEADER_01X03_SMD_RA"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>56CEA9F2</tstamp>
     </comp>
     <comp ref="P5">
       <value>HEADER_01X03_SMD_RA</value>
-      <footprint>relay_controller:Header_3_Pin_SMD_RA</footprint>
+      <footprint>h_bridge_controller:Header_3_Pin_SMD_RA</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">A100890CT-ND</field>
         <field name="Description">CONN HEADER 3POS R/A SMD GOLD</field>
       </fields>
-      <libsource lib="relay_controller" part="HEADER_01X03_SMD_RA"/>
+      <libsource lib="h_bridge_controller" part="HEADER_01X03_SMD_RA"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>56CEAAE8</tstamp>
     </comp>
     <comp ref="P6">
       <value>HEADER_01X02_SMD_RA</value>
-      <footprint>relay_controller:Header_2_Pin_SMD_RA</footprint>
+      <footprint>h_bridge_controller:Header_2_Pin_SMD_RA</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">A100903CT-ND</field>
         <field name="Description">CONN HEADER 2POS R/A SMD GOLD</field>
       </fields>
-      <libsource lib="relay_controller" part="HEADER_01X02_SMD_RA"/>
+      <libsource lib="h_bridge_controller" part="HEADER_01X02_SMD_RA"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>56CF00ED</tstamp>
     </comp>
     <comp ref="SW1">
       <value>SPST_SLIDE_AS</value>
-      <footprint>relay_controller:SPST_SLIDE_AS</footprint>
+      <footprint>h_bridge_controller:SPST_SLIDE_AS</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">360-2610-ND</field>
         <field name="Description">SWITCH SLIDE SPST 0.4VA 28V</field>
       </fields>
-      <libsource lib="relay_controller" part="SPST_SLIDE_AS"/>
+      <libsource lib="h_bridge_controller" part="SPST_SLIDE_AS"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>56CFEB9B</tstamp>
     </comp>
     <comp ref="C1">
       <value>10uF</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">445-4536-1-ND</field>
         <field name="Description">CAP CER 10UF 50V 10% X7S 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="10uF"/>
+      <libsource lib="h_bridge_controller" part="10uF"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>56D083E8</tstamp>
     </comp>
     <comp ref="L1">
       <value>LED_24V</value>
-      <footprint>relay_controller:LED_555-3XXX</footprint>
+      <footprint>h_bridge_controller:LED_555-3XXX</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1723-ND</field>
         <field name="Description">LED 2MM 24V VERTICAL RED PC MNT</field>
       </fields>
-      <libsource lib="relay_controller" part="LED_24V"/>
+      <libsource lib="h_bridge_controller" part="LED_24V"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5702D59F</tstamp>
     </comp>
     <comp ref="U1">
       <value>SSR_DC_6PIN</value>
-      <footprint>relay_controller:ASSR-1611</footprint>
+      <footprint>h_bridge_controller:ASSR-1611</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">516-2367-5-ND</field>
         <field name="Description">RELAY SSR SPST SGL 2.5A 6SMD GW</field>
       </fields>
-      <libsource lib="relay_controller" part="SSR_DC_6PIN"/>
+      <libsource lib="h_bridge_controller" part="SSR_DC_6PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5702DD02</tstamp>
     </comp>
     <comp ref="R3">
       <value>150</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P150AACT-ND</field>
         <field name="Description">RES SMD 150 OHM 1% 1/2W 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="150"/>
+      <libsource lib="h_bridge_controller" part="150"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5702DD5E</tstamp>
     </comp>
     <comp ref="T1">
       <value>TERM_BLK_ANG_2_PIN</value>
-      <footprint>relay_controller:TERM_BLK_ANG_2_PIN</footprint>
+      <footprint>h_bridge_controller:TERM_BLK_ANG_2_PIN</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">277-5716-ND</field>
         <field name="Description">TERMINAL BLOCK PCB 2POS 5.08MM</field>
       </fields>
-      <libsource lib="relay_controller" part="TERM_BLK_ANG_2_PIN"/>
+      <libsource lib="h_bridge_controller" part="TERM_BLK_ANG_2_PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5702E600</tstamp>
     </comp>
     <comp ref="R1">
       <value>5.11k</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P5.11KAACT-ND</field>
         <field name="Description">RES SMD 5.11K OHM 1% 1/2W 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="5.11k"/>
+      <libsource lib="h_bridge_controller" part="5.11k"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57040D89</tstamp>
     </comp>
     <comp ref="R2">
       <value>1k</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P1.00KAACT-ND</field>
         <field name="Description">RES SMD 1K OHM 1% 1/2W 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="1k"/>
+      <libsource lib="h_bridge_controller" part="1k"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57040DDE</tstamp>
     </comp>
     <comp ref="U2">
       <value>SSR_DC_6PIN</value>
-      <footprint>relay_controller:ASSR-1611</footprint>
+      <footprint>h_bridge_controller:ASSR-1611</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">516-2367-5-ND</field>
         <field name="Description">RELAY SSR SPST SGL 2.5A 6SMD GW</field>
       </fields>
-      <libsource lib="relay_controller" part="SSR_DC_6PIN"/>
+      <libsource lib="h_bridge_controller" part="SSR_DC_6PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57045142</tstamp>
     </comp>
     <comp ref="R4">
       <value>150</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P150AACT-ND</field>
         <field name="Description">RES SMD 150 OHM 1% 1/2W 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="150"/>
+      <libsource lib="h_bridge_controller" part="150"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704514B</tstamp>
     </comp>
     <comp ref="T2">
       <value>TERM_BLK_ANG_2_PIN</value>
-      <footprint>relay_controller:TERM_BLK_ANG_2_PIN</footprint>
+      <footprint>h_bridge_controller:TERM_BLK_ANG_2_PIN</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">277-5716-ND</field>
         <field name="Description">TERMINAL BLOCK PCB 2POS 5.08MM</field>
       </fields>
-      <libsource lib="relay_controller" part="TERM_BLK_ANG_2_PIN"/>
+      <libsource lib="h_bridge_controller" part="TERM_BLK_ANG_2_PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704515F</tstamp>
     </comp>
     <comp ref="U3">
       <value>SSR_DC_6PIN</value>
-      <footprint>relay_controller:ASSR-1611</footprint>
+      <footprint>h_bridge_controller:ASSR-1611</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">516-2367-5-ND</field>
         <field name="Description">RELAY SSR SPST SGL 2.5A 6SMD GW</field>
       </fields>
-      <libsource lib="relay_controller" part="SSR_DC_6PIN"/>
+      <libsource lib="h_bridge_controller" part="SSR_DC_6PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57045CB1</tstamp>
     </comp>
     <comp ref="R5">
       <value>150</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P150AACT-ND</field>
         <field name="Description">RES SMD 150 OHM 1% 1/2W 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="150"/>
+      <libsource lib="h_bridge_controller" part="150"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57045CBA</tstamp>
     </comp>
     <comp ref="T3">
       <value>TERM_BLK_ANG_2_PIN</value>
-      <footprint>relay_controller:TERM_BLK_ANG_2_PIN</footprint>
+      <footprint>h_bridge_controller:TERM_BLK_ANG_2_PIN</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">277-5716-ND</field>
         <field name="Description">TERMINAL BLOCK PCB 2POS 5.08MM</field>
       </fields>
-      <libsource lib="relay_controller" part="TERM_BLK_ANG_2_PIN"/>
+      <libsource lib="h_bridge_controller" part="TERM_BLK_ANG_2_PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57045CCE</tstamp>
     </comp>
     <comp ref="U4">
       <value>SSR_DC_6PIN</value>
-      <footprint>relay_controller:ASSR-1611</footprint>
+      <footprint>h_bridge_controller:ASSR-1611</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">516-2367-5-ND</field>
         <field name="Description">RELAY SSR SPST SGL 2.5A 6SMD GW</field>
       </fields>
-      <libsource lib="relay_controller" part="SSR_DC_6PIN"/>
+      <libsource lib="h_bridge_controller" part="SSR_DC_6PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57045CDD</tstamp>
     </comp>
     <comp ref="R6">
       <value>150</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P150AACT-ND</field>
         <field name="Description">RES SMD 150 OHM 1% 1/2W 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="150"/>
+      <libsource lib="h_bridge_controller" part="150"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57045CE6</tstamp>
     </comp>
     <comp ref="T4">
       <value>TERM_BLK_ANG_2_PIN</value>
-      <footprint>relay_controller:TERM_BLK_ANG_2_PIN</footprint>
+      <footprint>h_bridge_controller:TERM_BLK_ANG_2_PIN</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">277-5716-ND</field>
         <field name="Description">TERMINAL BLOCK PCB 2POS 5.08MM</field>
       </fields>
-      <libsource lib="relay_controller" part="TERM_BLK_ANG_2_PIN"/>
+      <libsource lib="h_bridge_controller" part="TERM_BLK_ANG_2_PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57045CFA</tstamp>
     </comp>
     <comp ref="U5">
       <value>SSR_DC_6PIN</value>
-      <footprint>relay_controller:ASSR-1611</footprint>
+      <footprint>h_bridge_controller:ASSR-1611</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">516-2367-5-ND</field>
         <field name="Description">RELAY SSR SPST SGL 2.5A 6SMD GW</field>
       </fields>
-      <libsource lib="relay_controller" part="SSR_DC_6PIN"/>
+      <libsource lib="h_bridge_controller" part="SSR_DC_6PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704645D</tstamp>
     </comp>
     <comp ref="R7">
       <value>150</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P150AACT-ND</field>
         <field name="Description">RES SMD 150 OHM 1% 1/2W 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="150"/>
+      <libsource lib="h_bridge_controller" part="150"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57046466</tstamp>
     </comp>
     <comp ref="T5">
       <value>TERM_BLK_ANG_2_PIN</value>
-      <footprint>relay_controller:TERM_BLK_ANG_2_PIN</footprint>
+      <footprint>h_bridge_controller:TERM_BLK_ANG_2_PIN</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">277-5716-ND</field>
         <field name="Description">TERMINAL BLOCK PCB 2POS 5.08MM</field>
       </fields>
-      <libsource lib="relay_controller" part="TERM_BLK_ANG_2_PIN"/>
+      <libsource lib="h_bridge_controller" part="TERM_BLK_ANG_2_PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704647A</tstamp>
     </comp>
     <comp ref="U6">
       <value>SSR_DC_6PIN</value>
-      <footprint>relay_controller:ASSR-1611</footprint>
+      <footprint>h_bridge_controller:ASSR-1611</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">516-2367-5-ND</field>
         <field name="Description">RELAY SSR SPST SGL 2.5A 6SMD GW</field>
       </fields>
-      <libsource lib="relay_controller" part="SSR_DC_6PIN"/>
+      <libsource lib="h_bridge_controller" part="SSR_DC_6PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57046489</tstamp>
     </comp>
     <comp ref="R8">
       <value>150</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P150AACT-ND</field>
         <field name="Description">RES SMD 150 OHM 1% 1/2W 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="150"/>
+      <libsource lib="h_bridge_controller" part="150"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>57046492</tstamp>
     </comp>
     <comp ref="T6">
       <value>TERM_BLK_ANG_2_PIN</value>
-      <footprint>relay_controller:TERM_BLK_ANG_2_PIN</footprint>
+      <footprint>h_bridge_controller:TERM_BLK_ANG_2_PIN</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">277-5716-ND</field>
         <field name="Description">TERMINAL BLOCK PCB 2POS 5.08MM</field>
       </fields>
-      <libsource lib="relay_controller" part="TERM_BLK_ANG_2_PIN"/>
+      <libsource lib="h_bridge_controller" part="TERM_BLK_ANG_2_PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>570464A6</tstamp>
     </comp>
     <comp ref="U7">
       <value>SSR_DC_6PIN</value>
-      <footprint>relay_controller:ASSR-1611</footprint>
+      <footprint>h_bridge_controller:ASSR-1611</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">516-2367-5-ND</field>
         <field name="Description">RELAY SSR SPST SGL 2.5A 6SMD GW</field>
       </fields>
-      <libsource lib="relay_controller" part="SSR_DC_6PIN"/>
+      <libsource lib="h_bridge_controller" part="SSR_DC_6PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>570464B5</tstamp>
     </comp>
     <comp ref="R9">
       <value>150</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P150AACT-ND</field>
         <field name="Description">RES SMD 150 OHM 1% 1/2W 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="150"/>
+      <libsource lib="h_bridge_controller" part="150"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>570464BE</tstamp>
     </comp>
     <comp ref="T7">
       <value>TERM_BLK_ANG_2_PIN</value>
-      <footprint>relay_controller:TERM_BLK_ANG_2_PIN</footprint>
+      <footprint>h_bridge_controller:TERM_BLK_ANG_2_PIN</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">277-5716-ND</field>
         <field name="Description">TERMINAL BLOCK PCB 2POS 5.08MM</field>
       </fields>
-      <libsource lib="relay_controller" part="TERM_BLK_ANG_2_PIN"/>
+      <libsource lib="h_bridge_controller" part="TERM_BLK_ANG_2_PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>570464D2</tstamp>
     </comp>
     <comp ref="U8">
       <value>SSR_DC_6PIN</value>
-      <footprint>relay_controller:ASSR-1611</footprint>
+      <footprint>h_bridge_controller:ASSR-1611</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">516-2367-5-ND</field>
         <field name="Description">RELAY SSR SPST SGL 2.5A 6SMD GW</field>
       </fields>
-      <libsource lib="relay_controller" part="SSR_DC_6PIN"/>
+      <libsource lib="h_bridge_controller" part="SSR_DC_6PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>570464E1</tstamp>
     </comp>
     <comp ref="R10">
       <value>150</value>
-      <footprint>relay_controller:SM1210</footprint>
+      <footprint>h_bridge_controller:SM1210</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P150AACT-ND</field>
         <field name="Description">RES SMD 150 OHM 1% 1/2W 1210</field>
       </fields>
-      <libsource lib="relay_controller" part="150"/>
+      <libsource lib="h_bridge_controller" part="150"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>570464EA</tstamp>
     </comp>
     <comp ref="T8">
       <value>TERM_BLK_ANG_2_PIN</value>
-      <footprint>relay_controller:TERM_BLK_ANG_2_PIN</footprint>
+      <footprint>h_bridge_controller:TERM_BLK_ANG_2_PIN</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">277-5716-ND</field>
         <field name="Description">TERMINAL BLOCK PCB 2POS 5.08MM</field>
       </fields>
-      <libsource lib="relay_controller" part="TERM_BLK_ANG_2_PIN"/>
+      <libsource lib="h_bridge_controller" part="TERM_BLK_ANG_2_PIN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>570464FE</tstamp>
     </comp>
     <comp ref="L2">
       <value>LED_5V_GRN</value>
-      <footprint>relay_controller:LED_555-3XXX</footprint>
+      <footprint>h_bridge_controller:LED_555-3XXX</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1726-ND</field>
         <field name="Description">LED 2MM 5V VERTICAL GREEN PC MNT</field>
       </fields>
-      <libsource lib="relay_controller" part="LED_5V_GRN"/>
+      <libsource lib="h_bridge_controller" part="LED_5V_GRN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704A7D6</tstamp>
     </comp>
     <comp ref="L3">
       <value>LED_5V_GRN</value>
-      <footprint>relay_controller:LED_555-3XXX</footprint>
+      <footprint>h_bridge_controller:LED_555-3XXX</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1726-ND</field>
         <field name="Description">LED 2MM 5V VERTICAL GREEN PC MNT</field>
       </fields>
-      <libsource lib="relay_controller" part="LED_5V_GRN"/>
+      <libsource lib="h_bridge_controller" part="LED_5V_GRN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704AA2D</tstamp>
     </comp>
     <comp ref="L4">
       <value>LED_5V_GRN</value>
-      <footprint>relay_controller:LED_555-3XXX</footprint>
+      <footprint>h_bridge_controller:LED_555-3XXX</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1726-ND</field>
         <field name="Description">LED 2MM 5V VERTICAL GREEN PC MNT</field>
       </fields>
-      <libsource lib="relay_controller" part="LED_5V_GRN"/>
+      <libsource lib="h_bridge_controller" part="LED_5V_GRN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704AB91</tstamp>
     </comp>
     <comp ref="L5">
       <value>LED_5V_GRN</value>
-      <footprint>relay_controller:LED_555-3XXX</footprint>
+      <footprint>h_bridge_controller:LED_555-3XXX</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1726-ND</field>
         <field name="Description">LED 2MM 5V VERTICAL GREEN PC MNT</field>
       </fields>
-      <libsource lib="relay_controller" part="LED_5V_GRN"/>
+      <libsource lib="h_bridge_controller" part="LED_5V_GRN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704AB9A</tstamp>
     </comp>
     <comp ref="L6">
       <value>LED_5V_GRN</value>
-      <footprint>relay_controller:LED_555-3XXX</footprint>
+      <footprint>h_bridge_controller:LED_555-3XXX</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1726-ND</field>
         <field name="Description">LED 2MM 5V VERTICAL GREEN PC MNT</field>
       </fields>
-      <libsource lib="relay_controller" part="LED_5V_GRN"/>
+      <libsource lib="h_bridge_controller" part="LED_5V_GRN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704AE5B</tstamp>
     </comp>
     <comp ref="L7">
       <value>LED_5V_GRN</value>
-      <footprint>relay_controller:LED_555-3XXX</footprint>
+      <footprint>h_bridge_controller:LED_555-3XXX</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1726-ND</field>
         <field name="Description">LED 2MM 5V VERTICAL GREEN PC MNT</field>
       </fields>
-      <libsource lib="relay_controller" part="LED_5V_GRN"/>
+      <libsource lib="h_bridge_controller" part="LED_5V_GRN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704AE64</tstamp>
     </comp>
     <comp ref="L8">
       <value>LED_5V_GRN</value>
-      <footprint>relay_controller:LED_555-3XXX</footprint>
+      <footprint>h_bridge_controller:LED_555-3XXX</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1726-ND</field>
         <field name="Description">LED 2MM 5V VERTICAL GREEN PC MNT</field>
       </fields>
-      <libsource lib="relay_controller" part="LED_5V_GRN"/>
+      <libsource lib="h_bridge_controller" part="LED_5V_GRN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704AE81</tstamp>
     </comp>
     <comp ref="L9">
       <value>LED_5V_GRN</value>
-      <footprint>relay_controller:LED_555-3XXX</footprint>
+      <footprint>h_bridge_controller:LED_555-3XXX</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1726-ND</field>
         <field name="Description">LED 2MM 5V VERTICAL GREEN PC MNT</field>
       </fields>
-      <libsource lib="relay_controller" part="LED_5V_GRN"/>
+      <libsource lib="h_bridge_controller" part="LED_5V_GRN"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>5704AE8A</tstamp>
     </comp>
     <comp ref="ARDUINO1">
       <value>ARDUINO_MEGA</value>
-      <footprint>relay_controller:ARDUINO_MEGA_SHIELD</footprint>
+      <footprint>h_bridge_controller:ARDUINO_MEGA_SHIELD</footprint>
       <fields>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">1050-1018-ND</field>
         <field name="Description">BOARD MCU MEGA2560</field>
       </fields>
-      <libsource lib="relay_controller" part="ARDUINO_MEGA"/>
+      <libsource lib="h_bridge_controller" part="ARDUINO_MEGA"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamp>54AD3990</tstamp>
     </comp>
   </components>
   <libparts>
-    <libpart lib="relay_controller" part="10uF">
+    <libpart lib="h_bridge_controller" part="10uF">
       <footprints>
         <fp>SM*</fp>
         <fp>C?</fp>
@@ -606,7 +606,7 @@
       <fields>
         <field name="Reference">C</field>
         <field name="Value">10uF</field>
-        <field name="Footprint">relay_controller:SM1210</field>
+        <field name="Footprint">h_bridge_controller:SM1210</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">445-4536-1-ND</field>
         <field name="Description">CAP CER 10UF 50V 10% X7S 1210</field>
@@ -616,7 +616,7 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="150">
+    <libpart lib="h_bridge_controller" part="150">
       <footprints>
         <fp>R?</fp>
         <fp>SM0603</fp>
@@ -627,7 +627,7 @@
       <fields>
         <field name="Reference">R</field>
         <field name="Value">150</field>
-        <field name="Footprint">relay_controller:SM1210</field>
+        <field name="Footprint">h_bridge_controller:SM1210</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P150AACT-ND</field>
         <field name="Description">RES SMD 150 OHM 1% 1/2W 1210</field>
@@ -637,7 +637,7 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="1k">
+    <libpart lib="h_bridge_controller" part="1k">
       <footprints>
         <fp>R?</fp>
         <fp>SM0603</fp>
@@ -648,7 +648,7 @@
       <fields>
         <field name="Reference">R</field>
         <field name="Value">1k</field>
-        <field name="Footprint">relay_controller:SM1210</field>
+        <field name="Footprint">h_bridge_controller:SM1210</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P1.00KAACT-ND</field>
         <field name="Description">RES SMD 1K OHM 1% 1/2W 1210</field>
@@ -658,7 +658,7 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="5.11k">
+    <libpart lib="h_bridge_controller" part="5.11k">
       <footprints>
         <fp>R?</fp>
         <fp>SM0603</fp>
@@ -669,7 +669,7 @@
       <fields>
         <field name="Reference">R</field>
         <field name="Value">5.11k</field>
-        <field name="Footprint">relay_controller:SM1210</field>
+        <field name="Footprint">h_bridge_controller:SM1210</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">P5.11KAACT-ND</field>
         <field name="Description">RES SMD 5.11K OHM 1% 1/2W 1210</field>
@@ -679,11 +679,11 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="ARDUINO_MEGA">
+    <libpart lib="h_bridge_controller" part="ARDUINO_MEGA">
       <fields>
         <field name="Reference">ARDUINO</field>
         <field name="Value">ARDUINO_MEGA</field>
-        <field name="Footprint">relay_controller:ARDUINO_MEGA_SHIELD</field>
+        <field name="Footprint">h_bridge_controller:ARDUINO_MEGA_SHIELD</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">1050-1018-ND</field>
         <field name="Description">BOARD MCU MEGA2560</field>
@@ -777,7 +777,7 @@
         <pin num="V_IN" name="V_IN" type="power_in"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="BNC_DOUBLE_RA">
+    <libpart lib="h_bridge_controller" part="BNC_DOUBLE_RA">
       <footprints>
         <fp>Pin_Header_Straight_2X02</fp>
         <fp>Pin_Header_Angled_2X02</fp>
@@ -787,7 +787,7 @@
       <fields>
         <field name="Reference">P</field>
         <field name="Value">BNC_DOUBLE_RA</field>
-        <field name="Footprint">relay_controller:BNC_DOUBLE</field>
+        <field name="Footprint">h_bridge_controller:BNC_DOUBLE</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">ACX1655-ND</field>
         <field name="Description">CONN BNC JACK R/A 75 OHM PCB</field>
@@ -799,11 +799,11 @@
         <pin num="4" name="P4" type="power_in"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="CONV_DC_DC_12V_1A">
+    <libpart lib="h_bridge_controller" part="CONV_DC_DC_12V_1A">
       <fields>
         <field name="Reference">REG</field>
         <field name="Value">CONV_DC_DC_12V_1A</field>
-        <field name="Footprint">relay_controller:DC_DC_CONV_R78C</field>
+        <field name="Footprint">h_bridge_controller:DC_DC_CONV_R78C</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">945-1392-5-ND</field>
         <field name="Description">CONV DC/DC 1A 12V OUT SIP VERT</field>
@@ -814,7 +814,7 @@
         <pin num="3" name="+VOUT" type="power_out"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="HEADER_01X02_SMD_RA">
+    <libpart lib="h_bridge_controller" part="HEADER_01X02_SMD_RA">
       <description>Connector 01x02</description>
       <footprints>
         <fp>Pin_Header_Straight_1X02</fp>
@@ -825,7 +825,7 @@
       <fields>
         <field name="Reference">P</field>
         <field name="Value">HEADER_01X02_SMD_RA</field>
-        <field name="Footprint">relay_controller:Header_2_Pin_SMD_RA</field>
+        <field name="Footprint">h_bridge_controller:Header_2_Pin_SMD_RA</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">A100903CT-ND</field>
         <field name="Description">CONN HEADER 2POS R/A SMD GOLD</field>
@@ -835,7 +835,7 @@
         <pin num="2" name="P2" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="HEADER_01X03_SMD_RA">
+    <libpart lib="h_bridge_controller" part="HEADER_01X03_SMD_RA">
       <footprints>
         <fp>Pin_Header_Straight_1X03</fp>
         <fp>Pin_Header_Angled_1X03</fp>
@@ -845,7 +845,7 @@
       <fields>
         <field name="Reference">P</field>
         <field name="Value">HEADER_01X03_SMD_RA</field>
-        <field name="Footprint">relay_controller:Header_3_Pin_SMD_RA</field>
+        <field name="Footprint">h_bridge_controller:Header_3_Pin_SMD_RA</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">A100890CT-ND</field>
         <field name="Description">CONN HEADER 3POS R/A SMD GOLD</field>
@@ -856,7 +856,7 @@
         <pin num="3" name="P3" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="LED_24V">
+    <libpart lib="h_bridge_controller" part="LED_24V">
       <footprints>
         <fp>LED-3MM</fp>
         <fp>LED-5MM</fp>
@@ -869,7 +869,7 @@
       <fields>
         <field name="Reference">L</field>
         <field name="Value">LED_24V</field>
-        <field name="Footprint">relay_controller:LED_555-3XXX</field>
+        <field name="Footprint">h_bridge_controller:LED_555-3XXX</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1723-ND</field>
         <field name="Description">LED 2MM 24V VERTICAL RED PC MNT</field>
@@ -879,7 +879,7 @@
         <pin num="2" name="K" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="LED_5V_GRN">
+    <libpart lib="h_bridge_controller" part="LED_5V_GRN">
       <footprints>
         <fp>LED-3MM</fp>
         <fp>LED-5MM</fp>
@@ -892,7 +892,7 @@
       <fields>
         <field name="Reference">L</field>
         <field name="Value">LED_5V_GRN</field>
-        <field name="Footprint">relay_controller:LED_555-3XXX</field>
+        <field name="Footprint">h_bridge_controller:LED_555-3XXX</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">350-1726-ND</field>
         <field name="Description">LED 2MM 5V VERTICAL GREEN PC MNT</field>
@@ -902,7 +902,7 @@
         <pin num="2" name="K" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="PWR_JACK_2.5x5.5">
+    <libpart lib="h_bridge_controller" part="PWR_JACK_2.5x5.5">
       <footprints>
         <fp>Pin_Header_Straight_1X02</fp>
         <fp>Pin_Header_Angled_1X02</fp>
@@ -912,7 +912,7 @@
       <fields>
         <field name="Reference">P</field>
         <field name="Value">PWR_JACK_2.5x5.5</field>
-        <field name="Footprint">relay_controller:DCJACK_2PIN_HIGHCURRENT</field>
+        <field name="Footprint">h_bridge_controller:DCJACK_2PIN_HIGHCURRENT</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">CP-063BH-ND</field>
         <field name="Description">CONN PWR JACK DC 2.5X5.5 8A T/H</field>
@@ -922,11 +922,11 @@
         <pin num="2" name="P2" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="SPST_SLIDE_AS">
+    <libpart lib="h_bridge_controller" part="SPST_SLIDE_AS">
       <fields>
         <field name="Reference">SW</field>
         <field name="Value">SPST_SLIDE_AS</field>
-        <field name="Footprint">relay_controller:SPST_SLIDE_AS</field>
+        <field name="Footprint">h_bridge_controller:SPST_SLIDE_AS</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">360-2610-ND</field>
         <field name="Description">SWITCH SLIDE SPST 0.4VA 28V</field>
@@ -936,11 +936,11 @@
         <pin num="3" name="3" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="SSR_DC_6PIN">
+    <libpart lib="h_bridge_controller" part="SSR_DC_6PIN">
       <fields>
         <field name="Reference">U</field>
         <field name="Value">SSR_DC_6PIN</field>
-        <field name="Footprint">relay_controller:ASSR-1611</field>
+        <field name="Footprint">h_bridge_controller:ASSR-1611</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">516-2367-5-ND</field>
         <field name="Description">RELAY SSR SPST SGL 2.5A 6SMD GW</field>
@@ -954,7 +954,7 @@
         <pin num="6" name="+LOAD" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="relay_controller" part="TERM_BLK_ANG_2_PIN">
+    <libpart lib="h_bridge_controller" part="TERM_BLK_ANG_2_PIN">
       <footprints>
         <fp>Pin_Header_Straight_1X02</fp>
         <fp>Pin_Header_Angled_1X02</fp>
@@ -964,7 +964,7 @@
       <fields>
         <field name="Reference">T</field>
         <field name="Value">TERM_BLK_ANG_2_PIN</field>
-        <field name="Footprint">relay_controller:TERM_BLK_ANG_2_PIN</field>
+        <field name="Footprint">h_bridge_controller:TERM_BLK_ANG_2_PIN</field>
         <field name="Vendor">digikey</field>
         <field name="PartNumber">277-5716-ND</field>
         <field name="Description">TERMINAL BLOCK PCB 2POS 5.08MM</field>
@@ -976,8 +976,8 @@
     </libpart>
   </libparts>
   <libraries>
-    <library logical="relay_controller">
-      <uri>/home/polidorop/git/modular-devices/relay_controller/pcb/relay_controller.lib</uri>
+    <library logical="h_bridge_controller">
+      <uri>/home/polidorop/git/modular-devices/h_bridge_controller/pcb/h_bridge_controller.lib</uri>
     </library>
   </libraries>
   <nets>

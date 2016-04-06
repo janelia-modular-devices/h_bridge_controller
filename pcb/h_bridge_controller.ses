@@ -1,15 +1,15 @@
 
-(session relay_controller.ses
-  (base_design relay_controller.dsn)
+(session h_bridge_controller.ses
+  (base_design h_bridge_controller.dsn)
   (placement
     (resolution um 10)
-    (component relay_controller:DC_DC_CONV_R78C
+    (component h_bridge_controller:DC_DC_CONV_R78C
       (place REG1 1035050 -1130300 front 180)
     )
-    (component relay_controller:DCJACK_2PIN_HIGHCURRENT
+    (component h_bridge_controller:DCJACK_2PIN_HIGHCURRENT
       (place P1 2114550 -1028700 front 270)
     )
-    (component relay_controller:SM1210
+    (component h_bridge_controller:SM1210
       (place C1 2006600 -1085850 back 180)
       (place C2 1047750 -1085850 back 0)
       (place C3 1022350 -1174750 back 180)
@@ -24,25 +24,25 @@
       (place R9 1606550 -1206500 back 180)
       (place R10 1809750 -1206500 back 180)
     )
-    (component relay_controller:BNC_DOUBLE
+    (component h_bridge_controller:BNC_DOUBLE
       (place P7 990600 -1028700 front 90)
     )
-    (component relay_controller:ARDUINO_MEGA_SHIELD
+    (component h_bridge_controller:ARDUINO_MEGA_SHIELD
       (place ARDUINO1 977900 -1295400 front 0)
     )
-    (component relay_controller:SPST_SLIDE_AS
+    (component h_bridge_controller:SPST_SLIDE_AS
       (place SW1 2032000 -1123950 front 90)
     )
-    (component relay_controller:Header_3_Pin_SMD_RA
+    (component h_bridge_controller:Header_3_Pin_SMD_RA
       (place P2 961390 -852170 front 90)
       (place P3 2038350 -793750 back 0)
       (place P4 2089150 -850900 front 270)
       (place P5 2038350 -1263650 back 180)
     )
-    (component relay_controller:Header_2_Pin_SMD_RA
+    (component h_bridge_controller:Header_2_Pin_SMD_RA
       (place P6 2038350 -1276350 front 180)
     )
-    (component "relay_controller:ASSR-1611"
+    (component "h_bridge_controller:ASSR-1611"
       (place U1 1200150 -869950 back 90)
       (place U2 1403350 -869950 back 90)
       (place U3 1606550 -869950 back 90)
@@ -52,7 +52,7 @@
       (place U7 1606550 -1085850 back 90)
       (place U8 1809750 -1085850 back 90)
     )
-    (component "relay_controller:LED_555-3XXX"
+    (component "h_bridge_controller:LED_555-3XXX"
       (place L9 1809750 -1231900 front 90)
       (place L8 1606550 -1231900 front 90)
       (place L7 1403350 -1231900 front 90)
@@ -63,7 +63,7 @@
       (place L2 1200150 -1016000 front 90)
       (place L1 2019300 -939800 front 270)
     )
-    (component relay_controller:TERM_BLK_ANG_2_PIN
+    (component h_bridge_controller:TERM_BLK_ANG_2_PIN
       (place T8 1809750 -1162050 front 0)
       (place T7 1606550 -1162050 front 0)
       (place T6 1403350 -1162050 front 0)

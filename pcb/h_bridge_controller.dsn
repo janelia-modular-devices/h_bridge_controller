@@ -1,4 +1,4 @@
-(pcb "/home/polidorop/git/modular-devices/relay_controller/pcb/relay_controller.dsn"
+(pcb "/home/polidorop/git/modular-devices/h_bridge_controller/pcb/h_bridge_controller.dsn"
   (parser
     (string_quote ")
     (space_in_quoted_tokens on)
@@ -33,13 +33,13 @@
     )
   )
   (placement
-    (component relay_controller:DC_DC_CONV_R78C
+    (component h_bridge_controller:DC_DC_CONV_R78C
       (place REG1 103505 -113030 front 180 (PN CONV_DC_DC_12V_1A))
     )
-    (component relay_controller:DCJACK_2PIN_HIGHCURRENT
+    (component h_bridge_controller:DCJACK_2PIN_HIGHCURRENT
       (place P1 211455 -102870 front 270 (PN PWR_JACK_2.5x5.5))
     )
-    (component relay_controller:SM1210
+    (component h_bridge_controller:SM1210
       (place C1 200660 -108585 back 180 (PN 10uF))
       (place C2 104775 -108585 back 0 (PN 10uF))
       (place C3 102235 -117475 back 180 (PN 10uF))
@@ -54,25 +54,25 @@
       (place R9 160655 -120650 back 180 (PN 150))
       (place R10 180975 -120650 back 180 (PN 150))
     )
-    (component relay_controller:BNC_DOUBLE
+    (component h_bridge_controller:BNC_DOUBLE
       (place P7 99060 -102870 front 90 (PN BNC_DOUBLE_RA))
     )
-    (component relay_controller:ARDUINO_MEGA_SHIELD
+    (component h_bridge_controller:ARDUINO_MEGA_SHIELD
       (place ARDUINO1 97790 -129540 front 0 (PN ARDUINO_MEGA))
     )
-    (component relay_controller:SPST_SLIDE_AS
+    (component h_bridge_controller:SPST_SLIDE_AS
       (place SW1 203200 -112395 front 90 (PN SPST_SLIDE_AS))
     )
-    (component relay_controller:Header_3_Pin_SMD_RA
+    (component h_bridge_controller:Header_3_Pin_SMD_RA
       (place P2 96139 -85217 front 90 (PN HEADER_01X03_SMD_RA))
       (place P3 203835 -79375 back 0 (PN HEADER_01X03_SMD_RA))
       (place P4 208915 -85090 front 270 (PN HEADER_01X03_SMD_RA))
       (place P5 203835 -126365 back 180 (PN HEADER_01X03_SMD_RA))
     )
-    (component relay_controller:Header_2_Pin_SMD_RA
+    (component h_bridge_controller:Header_2_Pin_SMD_RA
       (place P6 203835 -127635 front 180 (PN HEADER_01X02_SMD_RA))
     )
-    (component "relay_controller:ASSR-1611"
+    (component "h_bridge_controller:ASSR-1611"
       (place U1 120015 -86995 back 90 (PN SSR_DC_6PIN))
       (place U2 140335 -86995 back 90 (PN SSR_DC_6PIN))
       (place U3 160655 -86995 back 90 (PN SSR_DC_6PIN))
@@ -82,7 +82,7 @@
       (place U7 160655 -108585 back 90 (PN SSR_DC_6PIN))
       (place U8 180975 -108585 back 90 (PN SSR_DC_6PIN))
     )
-    (component "relay_controller:LED_555-3XXX"
+    (component "h_bridge_controller:LED_555-3XXX"
       (place L9 180975 -123190 front 90 (PN LED_5V_GRN))
       (place L8 160655 -123190 front 90 (PN LED_5V_GRN))
       (place L7 140335 -123190 front 90 (PN LED_5V_GRN))
@@ -93,7 +93,7 @@
       (place L2 120015 -101600 front 90 (PN LED_5V_GRN))
       (place L1 201930 -93980 front 270 (PN LED_24V))
     )
-    (component relay_controller:TERM_BLK_ANG_2_PIN
+    (component h_bridge_controller:TERM_BLK_ANG_2_PIN
       (place T8 180975 -116205 front 0 (PN TERM_BLK_ANG_2_PIN))
       (place T7 160655 -116205 front 0 (PN TERM_BLK_ANG_2_PIN))
       (place T6 140335 -116205 front 0 (PN TERM_BLK_ANG_2_PIN))
@@ -105,7 +105,7 @@
     )
   )
   (library
-    (image relay_controller:DC_DC_CONV_R78C
+    (image h_bridge_controller:DC_DC_CONV_R78C
       (outline (path signal 381  5715 -1905  5715 6350))
       (outline (path signal 381  5715 6350  -5715 6350))
       (outline (path signal 381  -5715 6350  -5715 -1905))
@@ -114,7 +114,7 @@
       (pin Oval[A]Pad_1524x2540_um 3 2540 0)
       (pin Oval[A]Pad_1524x2540_um 1 -2540 0)
     )
-    (image relay_controller:DCJACK_2PIN_HIGHCURRENT
+    (image h_bridge_controller:DCJACK_2PIN_HIGHCURRENT
       (outline (path signal 381  -5080 -13335  5080 -13335))
       (outline (path signal 381  5080 -13335  5080 0))
       (outline (path signal 381  -5080 -13335  -5080 0))
@@ -125,7 +125,7 @@
       (pin Oval[A]Pad_3556x5080_um @2 -4495.8 -5003.8)
       (pin Oval[A]Pad_3556x5080_um @3 4495.8 -5003.8)
     )
-    (image relay_controller:SM1210
+    (image h_bridge_controller:SM1210
       (outline (path signal 127  -762 1397  -2286 1397))
       (outline (path signal 127  -2286 1397  -2286 -1397))
       (outline (path signal 127  -2286 -1397  -762 -1397))
@@ -135,7 +135,7 @@
       (pin Rect[T]Pad_1270x2540_um 1 -1524 0)
       (pin Rect[T]Pad_1270x2540_um 2 1524 0)
     )
-    (image relay_controller:BNC_DOUBLE
+    (image h_bridge_controller:BNC_DOUBLE
       (outline (path signal 381  2540 -6350  3302 -5588))
       (outline (path signal 381  -1270 -7620  -2286 -6096))
       (outline (path signal 381  -6350 5715  -6350 6350))
@@ -154,7 +154,7 @@
       (pin Oval[A][254,0]Pad_2032x1524_um 2 2540 -8890)
       (pin "Oval[A][-254,0]Pad_2032x1524_um" 4 -2540 -8890)
     )
-    (image relay_controller:ARDUINO_MEGA_SHIELD
+    (image h_bridge_controller:ARDUINO_MEGA_SHIELD
       (outline (path signal 381  67945 7620  67851.8 7031.32  67581.2 6500.27  67159.7 6078.82
             66628.7 5808.24  66040 5715  65451.3 5808.24  64920.3 6078.82
             64498.8 6500.27  64228.2 7031.32  64135 7620  64228.2 8208.68
@@ -292,7 +292,7 @@
       (pin Oval[A][0,508]Pad_1524x2540_um (rotate 90) GND4 93980 7620)
       (pin "Oval[A][0,-508]Pad_1524x2540_um" (rotate 90) GND5 96520 7620)
     )
-    (image relay_controller:SPST_SLIDE_AS
+    (image h_bridge_controller:SPST_SLIDE_AS
       (outline (path signal 381  -2540 5080  2540 5080))
       (outline (path signal 381  2540 5080  2540 -5080))
       (outline (path signal 381  2540 -5080  -2540 -5080))
@@ -300,7 +300,7 @@
       (pin Oval[A]Pad_2159x1651_um 1 -990.6 2540)
       (pin Oval[A]Pad_2159x1651_um 3 -990.6 -2540)
     )
-    (image relay_controller:Header_3_Pin_SMD_RA
+    (image h_bridge_controller:Header_3_Pin_SMD_RA
       (outline (path signal 381  -6350 8255  6350 8255))
       (outline (path signal 381  6350 8255  6350 -5715))
       (outline (path signal 381  -6350 8255  -6350 -5715))
@@ -313,7 +313,7 @@
       (pin Rect[T]Pad_2794x4826_um @3 -5994.4 0)
       (pin Rect[T]Pad_2794x4826_um @4 5994.4 0)
     )
-    (image relay_controller:Header_2_Pin_SMD_RA
+    (image h_bridge_controller:Header_2_Pin_SMD_RA
       (outline (path signal 381  -5080 8255  5080 8255))
       (outline (path signal 381  5080 8255  5080 -5715))
       (outline (path signal 381  -5080 8255  -5080 -5715))
@@ -325,7 +325,7 @@
       (pin Rect[T]Pad_2794x4826_um @3 -4724.4 0)
       (pin Rect[T]Pad_2794x4826_um @4 4724.4 0)
     )
-    (image "relay_controller:ASSR-1611"
+    (image "h_bridge_controller:ASSR-1611"
       (outline (path signal 381  -1016 2540  -1040.86 2383.02  -1113.02 2241.41  -1225.4 2129.02
             -1367.02 2056.86  -1524 2032  -1680.98 2056.86  -1822.6 2129.02
             -1934.98 2241.41  -2007.14 2383.02  -2032 2540  -2007.14 2696.98
@@ -342,7 +342,7 @@
       (pin Rect[T]Pad_2032x1270_um 5 4445 0)
       (pin Rect[T]Pad_2032x1270_um 6 4445 2540)
     )
-    (image "relay_controller:LED_555-3XXX"
+    (image "h_bridge_controller:LED_555-3XXX"
       (outline (path signal 228.6  -508 508  508 508))
       (outline (path signal 228.6  0 0  0 1016))
       (outline (path signal 228.6  -1270 3810  1270 3810))
@@ -352,7 +352,7 @@
       (pin Oval[A]Pad_1524x2032_um 1 0 2540)
       (pin Oval[A]Pad_1524x2032_um 2 0 -2540)
     )
-    (image relay_controller:TERM_BLK_ANG_2_PIN
+    (image h_bridge_controller:TERM_BLK_ANG_2_PIN
       (outline (path signal 381  -5080 -5410.2  5080 -5410.2))
       (outline (path signal 381  -5080 8839.2  5080 8839.2))
       (outline (path signal 381  5080 8839.2  5080 -5410.2))
