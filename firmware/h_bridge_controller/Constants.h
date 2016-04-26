@@ -17,9 +17,9 @@ enum{SAVED_VARIABLE_COUNT_MAX=1};
 enum{PARAMETER_COUNT_MAX=16};
 enum{METHOD_COUNT_MAX=16};
 
-enum {BRIDGE_COUNT=2};
-enum {INDEXED_BRIDGES_COUNT_MAX=2};
-enum {DIGITAL_INPUT_COUNT=2};
+enum {BRIDGE_COUNT=4};
+enum {INDEXED_BRIDGES_COUNT_MAX=4};
+enum {DIGITAL_INPUT_COUNT=3};
 enum {DIGITAL_OUTPUT_COUNT=2};
 
 extern const unsigned int baudrate;
@@ -30,9 +30,9 @@ extern const unsigned char firmware_major;
 extern const unsigned char firmware_minor;
 extern const unsigned char firmware_patch;
 
-extern const int dir_pins[BRIDGE_COUNT];
-extern const int pwm_pins[BRIDGE_COUNT];
-extern const int brake_pins[BRIDGE_COUNT];
+extern const int enable_pins[BRIDGE_COUNT];
+extern const int dir_a_pins[BRIDGE_COUNT];
+extern const int dir_b_pins[BRIDGE_COUNT];
 extern const int sense_pins[BRIDGE_COUNT];
 
 extern const int di_pins[DIGITAL_INPUT_COUNT];

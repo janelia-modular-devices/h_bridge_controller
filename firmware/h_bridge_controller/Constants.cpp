@@ -19,13 +19,13 @@ const unsigned char firmware_major = 0;
 const unsigned char firmware_minor = 1;
 const unsigned char firmware_patch = 0;
 
-const int dir_pins[BRIDGE_COUNT] = {12,13};
-const int pwm_pins[BRIDGE_COUNT] = {3,11};
-const int brake_pins[BRIDGE_COUNT] = {9,8};
-const int sense_pins[BRIDGE_COUNT] = {0,1};
+const int enable_pins[BRIDGE_COUNT] = {8,9,10,11};
+const int dir_a_pins[BRIDGE_COUNT] = {30,32,34,36};
+const int dir_b_pins[BRIDGE_COUNT] = {31,33,35,37};
+const int sense_pins[BRIDGE_COUNT] = {0,1,2,3};
 
-const int di_pins[DIGITAL_INPUT_COUNT] = {21,20};
-const int do_pins[DIGITAL_OUTPUT_COUNT] = {4,5};
+const int di_pins[DIGITAL_INPUT_COUNT] = {21,20,2};
+const int do_pins[DIGITAL_OUTPUT_COUNT] = {48,3};
 
 const uint32_t duration_min = 1;
 const uint32_t duration_max = 0x7FFFFFFF;

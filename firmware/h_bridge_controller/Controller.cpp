@@ -17,7 +17,10 @@ void Controller::setup()
   // Pin Setup
   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
   {
-    pinMode(constants::dir_pins[bridge],OUTPUT);
+    pinMode(constants::enable_pins[bridge],OUTPUT);
+    digitalWrite(constants::enable_pins[bridge],LOW);
+    pinMode(constants::dir_a_pins[bridge],OUTPUT);
+    pinMode(constants::dir_b_pins[bridge],OUTPUT);
     if ((bridge%2) == 0)
     {
       setBridgePolarity(bridge,false);
@@ -28,10 +31,6 @@ void Controller::setup()
       setBridgePolarity(bridge,true);
       bridge_polarity_[bridge] = true;
     }
-    pinMode(constants::pwm_pins[bridge],OUTPUT);
-    digitalWrite(constants::pwm_pins[bridge],LOW);
-    pinMode(constants::brake_pins[bridge],OUTPUT);
-    digitalWrite(constants::brake_pins[bridge],LOW);
   }
 
   for (int digital_input=0; digital_input<constants::DIGITAL_INPUT_COUNT; ++digital_input)
@@ -151,11 +150,13 @@ void Controller::setBridgePolarity(int bridge, bool positive)
 {
   if (positive)
   {
-    digitalWrite(constants::dir_pins[bridge],HIGH);
+    digitalWrite(constants::dir_a_pins[bridge],HIGH);
+    digitalWrite(constants::dir_b_pins[bridge],LOW);
   }
   else
   {
-    digitalWrite(constants::dir_pins[bridge],LOW);
+    digitalWrite(constants::dir_a_pins[bridge],LOW);
+    digitalWrite(constants::dir_b_pins[bridge],HIGH);
   }
   bridge_polarity_[bridge] = positive;
 }
@@ -177,7 +178,7 @@ void Controller::toggleBridgesPolarity()
 
 void Controller::closeBridge(int bridge)
 {
-  digitalWrite(constants::pwm_pins[bridge],HIGH);
+  digitalWrite(constants::enable_pins[bridge],HIGH);
 }
 
 void Controller::closeBridges()
@@ -190,7 +191,7 @@ void Controller::closeBridges()
 
 void Controller::openBridge(int bridge)
 {
-  digitalWrite(constants::pwm_pins[bridge],LOW);
+  digitalWrite(constants::enable_pins[bridge],LOW);
 }
 
 void Controller::openBridges()
