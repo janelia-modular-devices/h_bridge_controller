@@ -31,6 +31,9 @@ const uint32_t duration_min = 1;
 const uint32_t duration_max = 0x7FFFFFFF;
 
 const uint32_t start_delay = 10;
+const uint32_t pulse_period = 25;
+const uint32_t pulse_on_duration = 4;
+const uint32_t pulse_count = 1;
 
 CONSTANT_STRING(device_name,"h_bridge_controller");
 

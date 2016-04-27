@@ -42,6 +42,9 @@ extern const uint32_t duration_min;
 extern const uint32_t duration_max;
 
 extern const uint32_t start_delay;
+extern const uint32_t pulse_period;
+extern const uint32_t pulse_on_duration;
+extern const uint32_t pulse_count;
 
 extern ConstantString device_name;
 

@@ -46,6 +46,10 @@ void openBridgesEventCallback(int index);
 
 void removeIndexedBridgeCallback(int index);
 
+void startTogglePulseEventCallback(int index);
+
+void stopTogglePulseEventCallback(int index);
+
 void ledOnEventCallback(int index);
 
 void ledOffEventCallback(int index);

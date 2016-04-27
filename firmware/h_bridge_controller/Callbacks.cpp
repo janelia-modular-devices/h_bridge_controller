@@ -95,19 +95,21 @@ void toggle1Callback()
 
 void togglePulseBridgesCallback()
 {
+  noInterrupts();
   if (!pulsing)
   {
     pulsing = true;
     EventController::event_controller.addPwmUsingDelayPeriodOnDuration(toggleCloseBridgesEventCallback,
                                                                        openBridgesEventCallback,
-                                                                       10,
-                                                                       25,
-                                                                       4,
-                                                                       1,
+                                                                       constants::start_delay,
+                                                                       constants::pulse_period,
+                                                                       constants::pulse_on_duration,
+                                                                       constants::pulse_count,
                                                                        0,
-                                                                       NULL,
-                                                                       removeIndexedBridgeCallback);
+                                                                       startTogglePulseEventCallback,
+                                                                       stopTogglePulseEventCallback);
   }
+  interrupts();
 }
 
 // EventController Callbacks
@@ -140,6 +142,16 @@ void openBridgesEventCallback(int index)
 
 void removeIndexedBridgeCallback(int index)
 {
+}
+
+void startTogglePulseEventCallback(int index)
+{
+  toggle0Callback();
+}
+
+void stopTogglePulseEventCallback(int index)
+{
+  toggle0Callback();
   pulsing = false;
 }
 
