@@ -21,6 +21,7 @@ public:
   ModularDevice::ModularServer& getModularServer();
 
   void setBridgePolarity(int bridge, bool positive);
+  void setBridgesPolarity(bool positive);
   void toggleBridgePolarity(int bridge);
   void toggleBridgesPolarity();
   void closeBridge(int bridge);
@@ -29,6 +30,10 @@ public:
   void openBridges();
   int getDigitalInput(int digital_input);
   void toggleDigitalOutput(int digital_output);
+  void pulseBridges();
+  void setPulsingFalse();
+  void incrementPattern();
+  void setIncrementingFalse();
 private:
   ModularDevice::ModularServer modular_server_;
   SavedVariable saved_variables_[constants::SAVED_VARIABLE_COUNT_MAX];
@@ -36,6 +41,13 @@ private:
   ModularDevice::Method methods_[constants::METHOD_COUNT_MAX];
   volatile bool bridge_polarity_[constants::BRIDGE_COUNT];
   volatile int output_state_[constants::DIGITAL_OUTPUT_COUNT];
+  volatile bool pulsing_;
+  volatile bool incrementing_;
+  int pattern_positive_count_;
+  int pattern_negative_count_;
+  volatile int pattern_positive_inc_;
+  volatile int pattern_negative_inc_;
+  volatile bool pattern_positive_;
 };
 
 extern Controller controller;

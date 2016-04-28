@@ -14,6 +14,14 @@ void Controller::setup()
 {
   EventController::event_controller.setup();
 
+  pulsing_ = false;
+  incrementing_ = false;
+  pattern_positive_count_ = 10;
+  pattern_negative_count_ = 1;
+  pattern_positive_inc_ = 0;
+  pattern_negative_inc_ = 0;
+  pattern_positive_ = true;
+
   // Pin Setup
   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
   {
@@ -46,8 +54,11 @@ void Controller::setup()
     output_state_[digital_output] = LOW;
   }
 
-  attachInterrupt(digitalPinToInterrupt(constants::di_pins[0]),callbacks::togglePulseBridgesCallback,FALLING);
-  attachInterrupt(digitalPinToInterrupt(constants::di_pins[1]),callbacks::togglePulseBridgesCallback,FALLING);
+  // attachInterrupt(digitalPinToInterrupt(constants::di_pins[0]),callbacks::togglePulseBridgesCallback,FALLING);
+  // attachInterrupt(digitalPinToInterrupt(constants::di_pins[1]),callbacks::togglePulseBridgesCallback,FALLING);
+
+  attachInterrupt(digitalPinToInterrupt(constants::di_pins[0]),callbacks::incrementPatternCallback,FALLING);
+  attachInterrupt(digitalPinToInterrupt(constants::di_pins[1]),callbacks::incrementPatternCallback,FALLING);
 
   // Device Info
   modular_server_.setName(constants::device_name);
@@ -63,6 +74,7 @@ void Controller::setup()
   modular_server_.setMethodStorage(methods_);
 
   // Saved Variables
+  // modular_server_.createSavedVariable(constants::states_name,constants::states_array_default,constants::STATE_COUNT);
 
   // Parameters
   ModularDevice::Parameter& bridge_parameter = modular_server_.createParameter(constants::bridge_parameter_name);
@@ -161,6 +173,14 @@ void Controller::setBridgePolarity(int bridge, bool positive)
   bridge_polarity_[bridge] = positive;
 }
 
+void Controller::setBridgesPolarity(bool positive)
+{
+  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+  {
+    setBridgePolarity(bridge,positive);
+  }
+}
+
 void Controller::toggleBridgePolarity(int bridge)
 {
   bridge_polarity_[bridge] = !bridge_polarity_[bridge];
@@ -171,8 +191,7 @@ void Controller::toggleBridgesPolarity()
 {
   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
   {
-    bridge_polarity_[bridge] = !bridge_polarity_[bridge];
-    setBridgePolarity(bridge,bridge_polarity_[bridge]);
+    toggleBridgePolarity(bridge);
   }
 }
 
@@ -211,6 +230,63 @@ void Controller::toggleDigitalOutput(int digital_output)
 {
   output_state_[digital_output] = ((output_state_[digital_output] == LOW) ? HIGH : LOW);
   digitalWrite(constants::do_pins[digital_output],output_state_[digital_output]);
+}
+
+void Controller::pulseBridges()
+{
+  if (!pulsing_)
+  {
+    pulsing_ = true;
+    EventController::event_controller.addPwmUsingDelayPeriodOnDuration(callbacks::closeBridgesEventCallback,
+                                                                       callbacks::openBridgesEventCallback,
+                                                                       constants::start_delay,
+                                                                       constants::pulse_period,
+                                                                       constants::pulse_on_duration,
+                                                                       constants::pulse_count,
+                                                                       -1,
+                                                                       NULL,
+                                                                       callbacks::stopPulseEventCallback);
+  }
+}
+
+void Controller::setPulsingFalse()
+{
+  pulsing_ = false;
+}
+
+void Controller::incrementPattern()
+{
+  if (!incrementing_)
+  {
+    incrementing_ = true;
+    if (pattern_positive_ && (pattern_positive_inc_ == pattern_positive_count_))
+    {
+      pattern_positive_ = false;
+      pattern_positive_inc_ = 0;
+    }
+    else if (!pattern_positive_ && (pattern_negative_inc_ == pattern_negative_count_))
+    {
+      pattern_positive_ = true;
+      pattern_negative_inc_ = 0;
+    }
+    if (pattern_positive_ && (pattern_positive_inc_ < pattern_positive_count_))
+    {
+      setBridgesPolarity(true);
+      pulseBridges();
+      ++pattern_positive_inc_;
+    }
+    else if (!pattern_positive_ && (pattern_negative_inc_ < pattern_negative_count_))
+    {
+      setBridgesPolarity(false);
+      pulseBridges();
+      ++pattern_negative_inc_;
+    }
+  }
+}
+
+void Controller::setIncrementingFalse()
+{
+  incrementing_ = false;
 }
 
 Controller controller;

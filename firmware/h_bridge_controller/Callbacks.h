@@ -33,12 +33,16 @@ void toggle1Callback();
 
 void togglePulseBridgesCallback();
 
+void incrementPatternCallback();
+
 // EventController Callbacks
 void toggleCloseBridgeEventCallback(int bridge);
 
 void toggleCloseBridgesEventCallback(int index);
 
 void closeBridgeEventCallback(int bridge);
+
+void closeBridgesEventCallback(int index);
 
 void openBridgeEventCallback(int bridge);
 
@@ -49,6 +53,8 @@ void removeIndexedBridgeCallback(int index);
 void startTogglePulseEventCallback(int index);
 
 void stopTogglePulseEventCallback(int index);
+
+void stopPulseEventCallback(int index);
 
 void ledOnEventCallback(int index);
 

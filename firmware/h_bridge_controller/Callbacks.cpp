@@ -29,8 +29,6 @@ ModularDevice::ModularServer& modular_server = controller.getModularServer();
 
 IndexedContainer<uint32_t,constants::INDEXED_BRIDGES_COUNT_MAX> indexed_bridges;
 
-volatile bool pulsing = false;
-
 void pulseCallback()
 {
   long bridge = modular_server.getParameterValue(constants::bridge_parameter_name);
@@ -95,21 +93,11 @@ void toggle1Callback()
 
 void togglePulseBridgesCallback()
 {
-  noInterrupts();
-  if (!pulsing)
-  {
-    pulsing = true;
-    EventController::event_controller.addPwmUsingDelayPeriodOnDuration(toggleCloseBridgesEventCallback,
-                                                                       openBridgesEventCallback,
-                                                                       constants::start_delay,
-                                                                       constants::pulse_period,
-                                                                       constants::pulse_on_duration,
-                                                                       constants::pulse_count,
-                                                                       0,
-                                                                       startTogglePulseEventCallback,
-                                                                       stopTogglePulseEventCallback);
-  }
-  interrupts();
+}
+
+void incrementPatternCallback()
+{
+  controller.incrementPattern();
 }
 
 // EventController Callbacks
@@ -128,6 +116,11 @@ void toggleCloseBridgesEventCallback(int index)
 void closeBridgeEventCallback(int bridge)
 {
   controller.closeBridge(bridge);
+}
+
+void closeBridgesEventCallback(int index)
+{
+  controller.closeBridges();
 }
 
 void openBridgeEventCallback(int bridge)
@@ -152,7 +145,12 @@ void startTogglePulseEventCallback(int index)
 void stopTogglePulseEventCallback(int index)
 {
   toggle0Callback();
-  pulsing = false;
+}
+
+void stopPulseEventCallback(int index)
+{
+  controller.setPulsingFalse();
+  controller.setIncrementingFalse();
 }
 
 void ledOnEventCallback(int index)
