@@ -66,10 +66,7 @@ void Controller::setup()
 
   // Saved Variables
   modular_server_.createSavedVariable(constants::polarity_reversed_parameter_name,constants::polarity_reversed_default,constants::BRIDGE_COUNT);
-  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
-  {
-    modular_server_.getSavedVariableValue(constants::polarity_reversed_parameter_name,bridge_polarity_reversed_,bridge);
-  }
+  modular_server_.getSavedVariableValue(constants::polarity_reversed_parameter_name,bridge_polarity_reversed_);
 
   modular_server_.createSavedVariable(constants::pattern_positive_count,constants::pattern_positive_count_default);
   modular_server_.getSavedVariableValue(constants::pattern_positive_count,pattern_positive_count_);
@@ -282,23 +279,25 @@ void Controller::incrementPattern()
 {
   if (!incrementing_)
   {
-    if (pattern_positive_ && (pattern_positive_inc_ == pattern_positive_count_))
+    int pattern_positive_count = getPatternPositiveCount();
+    int pattern_negative_count = getPatternPositiveCount();
+    if (pattern_positive_ && (pattern_positive_inc_ == pattern_positive_count))
     {
-      if (pattern_negative_count_ > 0)
+      if (pattern_negative_count > 0)
       {
         pattern_positive_ = false;
       }
       pattern_positive_inc_ = 0;
     }
-    else if (!pattern_positive_ && (pattern_negative_inc_ == pattern_negative_count_))
+    else if (!pattern_positive_ && (pattern_negative_inc_ == pattern_negative_count))
     {
-      if (pattern_positive_count_ > 0)
+      if (pattern_positive_count > 0)
       {
         pattern_positive_ = true;
       }
       pattern_negative_inc_ = 0;
     }
-    if (pattern_positive_ && (pattern_positive_inc_ < pattern_positive_count_))
+    if (pattern_positive_ && (pattern_positive_inc_ < pattern_positive_count))
     {
       setBridgesPolarity(true);
       incrementing_ = true;
@@ -306,7 +305,7 @@ void Controller::incrementPattern()
       ++pattern_positive_inc_;
       Serial << "p\n";
     }
-    else if (!pattern_positive_ && (pattern_negative_inc_ < pattern_negative_count_))
+    else if (!pattern_positive_ && (pattern_negative_inc_ < pattern_negative_count))
     {
       setBridgesPolarity(false);
       incrementing_ = true;
@@ -334,6 +333,7 @@ bool Controller::getPulseEnabled(int bridge)
 
 int Controller::getPatternPositiveCount()
 {
+  modular_server_.getSavedVariableValue(constants::pattern_positive_count,pattern_positive_count_);
   return pattern_positive_count_;
 }
 
@@ -351,6 +351,7 @@ void Controller::setPatternPositiveCount(int pattern_count)
 
 int Controller::getPatternNegativeCount()
 {
+  modular_server_.getSavedVariableValue(constants::pattern_negative_count,pattern_negative_count_);
   return pattern_negative_count_;
 }
 
