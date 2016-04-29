@@ -29,15 +29,15 @@ void Controller::setup()
     digitalWrite(constants::enable_pins[bridge],LOW);
     pinMode(constants::dir_a_pins[bridge],OUTPUT);
     pinMode(constants::dir_b_pins[bridge],OUTPUT);
-    if ((bridge%2) == 0)
+    setBridgePolarity(bridge,true);
+    bridge_polarity_[bridge] = true;
+    if (bridge < 2)
     {
-      setBridgePolarity(bridge,false);
-      bridge_polarity_[bridge] = false;
+      pulse_enabled_[bridge] = true;
     }
-    else
+    if ((bridge%2) != 0)
     {
-      setBridgePolarity(bridge,true);
-      bridge_polarity_[bridge] = true;
+      bridge_polarity_reversed_[bridge] = true;
     }
   }
 
@@ -53,9 +53,6 @@ void Controller::setup()
     digitalWrite(constants::do_pins[digital_output],LOW);
     output_state_[digital_output] = LOW;
   }
-
-  // attachInterrupt(digitalPinToInterrupt(constants::di_pins[0]),callbacks::togglePulseBridgesCallback,FALLING);
-  // attachInterrupt(digitalPinToInterrupt(constants::di_pins[1]),callbacks::togglePulseBridgesCallback,FALLING);
 
   attachInterrupt(digitalPinToInterrupt(constants::di_pins[0]),callbacks::incrementPatternCallback,FALLING);
   attachInterrupt(digitalPinToInterrupt(constants::di_pins[1]),callbacks::incrementPatternCallback,FALLING);
@@ -123,29 +120,15 @@ void Controller::setup()
   ModularDevice::Method& toggle_digital_output_method = modular_server_.createMethod(constants::toggle_digital_output_method_name);
   toggle_digital_output_method.attachCallback(callbacks::toggleDigitalOutputCallback);
 
+  ModularDevice::Method& get_pulse_info_method = modular_server_.createMethod(constants::get_pulse_info_method_name);
+  get_pulse_info_method.attachCallback(callbacks::getPulseInfoCallback);
+
   // Setup Streams
   Serial.begin(constants::baudrate);
 
   // Start Modular Device Server
   modular_server_.startServer();
 
-  // Standalone Interface
-
-  // Set Storage
-
-  // Setup
-
-  // Display Labels
-
-  // Display Variables
-
-  // Interactive Variables
-
-  // All Frames
-
-  // Frame 0
-
-  // Enable Standalone Interface
 }
 
 void Controller::update()
@@ -160,6 +143,10 @@ ModularDevice::ModularServer& Controller::getModularServer()
 
 void Controller::setBridgePolarity(int bridge, bool positive)
 {
+  if (bridge_polarity_reversed_[bridge])
+  {
+    positive = !positive;
+  }
   if (positive)
   {
     digitalWrite(constants::dir_a_pins[bridge],HIGH);
@@ -208,6 +195,17 @@ void Controller::closeBridges()
   }
 }
 
+void Controller::closePulseEnabledBridges()
+{
+  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+  {
+    if (pulse_enabled_[bridge])
+    {
+      closeBridge(bridge);
+    }
+  }
+}
+
 void Controller::openBridge(int bridge)
 {
   digitalWrite(constants::enable_pins[bridge],LOW);
@@ -218,6 +216,17 @@ void Controller::openBridges()
   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
   {
     openBridge(bridge);
+  }
+}
+
+void Controller::openPulseEnabledBridges()
+{
+  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+  {
+    if (pulse_enabled_[bridge])
+    {
+      openBridge(bridge);
+    }
   }
 }
 
@@ -237,8 +246,8 @@ void Controller::pulseBridges()
   if (!pulsing_)
   {
     pulsing_ = true;
-    EventController::event_controller.addPwmUsingDelayPeriodOnDuration(callbacks::closeBridgesEventCallback,
-                                                                       callbacks::openBridgesEventCallback,
+    EventController::event_controller.addPwmUsingDelayPeriodOnDuration(callbacks::closePulseEnabledBridgesEventCallback,
+                                                                       callbacks::openPulseEnabledBridgesEventCallback,
                                                                        constants::start_delay,
                                                                        constants::pulse_period,
                                                                        constants::pulse_on_duration,
@@ -287,6 +296,26 @@ void Controller::incrementPattern()
 void Controller::setIncrementingFalse()
 {
   incrementing_ = false;
+}
+
+bool Controller::getPolarityReversed(int bridge)
+{
+  return bridge_polarity_reversed_[bridge];
+}
+
+bool Controller::getPulseEnabled(int bridge)
+{
+  return pulse_enabled_[bridge];
+}
+
+int Controller::getPatternPositiveCount()
+{
+  return pattern_positive_count_;
+}
+
+int Controller::getPatternNegativeCount()
+{
+  return pattern_negative_count_;
 }
 
 Controller controller;

@@ -46,9 +46,14 @@ CONSTANT_STRING(on_duration_parameter_name,"on_duration");
 CONSTANT_STRING(period_parameter_name,"period");
 CONSTANT_STRING(count_parameter_name,"count");
 CONSTANT_STRING(digital_input_parameter_name,"digital_input");
+CONSTANT_STRING(polarity_reversed_parameter_name,"polarity_reversed");
+CONSTANT_STRING(pulse_enabled_parameter_name,"pulse_enabled");
+CONSTANT_STRING(pattern_positive_count_parameter_name,"pattern_positive_count");
+CONSTANT_STRING(pattern_negative_count_parameter_name,"pattern_negative_count");
 
 CONSTANT_STRING(pulse_method_name,"pulse");
 CONSTANT_STRING(add_pwm_period_on_duration_method_name,"addPwmPeriodOnDuration");
 CONSTANT_STRING(get_digital_input_method_name,"getDigitalInput");
 CONSTANT_STRING(toggle_digital_output_method_name,"toggleDigitalOutput");
+CONSTANT_STRING(get_pulse_info_method_name,"getPulseInfo");
 }

@@ -57,10 +57,15 @@ extern ConstantString on_duration_parameter_name;
 extern ConstantString period_parameter_name;
 extern ConstantString count_parameter_name;
 extern ConstantString digital_input_parameter_name;
+extern ConstantString polarity_reversed_parameter_name;
+extern ConstantString pulse_enabled_parameter_name;
+extern ConstantString pattern_positive_count_parameter_name;
+extern ConstantString pattern_negative_count_parameter_name;
 
 extern ConstantString pulse_method_name;
 extern ConstantString add_pwm_period_on_duration_method_name;
 extern ConstantString get_digital_input_method_name;
 extern ConstantString toggle_digital_output_method_name;
+extern ConstantString get_pulse_info_method_name;
 }
 #endif

@@ -80,6 +80,36 @@ void toggleDigitalOutputCallback()
   controller.toggleDigitalOutput(0);
 }
 
+void getPulseInfoCallback()
+{
+  modular_server.writeResultKeyToResponse();
+  modular_server.beginResponseObject();
+  modular_server.writeToResponse(constants::pattern_positive_count_parameter_name,controller.getPatternPositiveCount());
+  modular_server.writeToResponse(constants::pattern_negative_count_parameter_name,controller.getPatternNegativeCount());
+  modular_server.writeToResponse(constants::period_parameter_name,constants::pulse_period);
+  modular_server.writeToResponse(constants::on_duration_parameter_name,constants::pulse_on_duration);
+
+  modular_server.writeKeyToResponse(constants::polarity_reversed_parameter_name);
+  modular_server.beginResponseArray();
+  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+  {
+    bool polarity_reversed = controller.getPolarityReversed(bridge);
+    modular_server.writeToResponse(polarity_reversed);
+  }
+  modular_server.endResponseArray();
+
+  modular_server.writeKeyToResponse(constants::pulse_enabled_parameter_name);
+  modular_server.beginResponseArray();
+  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+  {
+    bool pulse_enabled = controller.getPulseEnabled(bridge);
+    modular_server.writeToResponse(pulse_enabled);
+  }
+  modular_server.endResponseArray();
+
+  modular_server.endResponseObject();
+}
+
 // Interrupt Callbacks
 void toggle0Callback()
 {
@@ -123,6 +153,11 @@ void closeBridgesEventCallback(int index)
   controller.closeBridges();
 }
 
+void closePulseEnabledBridgesEventCallback(int index)
+{
+  controller.closePulseEnabledBridges();
+}
+
 void openBridgeEventCallback(int bridge)
 {
   controller.openBridge(bridge);
@@ -131,6 +166,11 @@ void openBridgeEventCallback(int bridge)
 void openBridgesEventCallback(int index)
 {
   controller.openBridges();
+}
+
+void openPulseEnabledBridgesEventCallback(int index)
+{
+  controller.openPulseEnabledBridges();
 }
 
 void removeIndexedBridgeCallback(int index)

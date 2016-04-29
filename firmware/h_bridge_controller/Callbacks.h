@@ -26,6 +26,8 @@ void getDigitalInputCallback();
 
 void toggleDigitalOutputCallback();
 
+void getPulseInfoCallback();
+
 // Interrupt Callbacks
 void toggle0Callback();
 
@@ -44,9 +46,13 @@ void closeBridgeEventCallback(int bridge);
 
 void closeBridgesEventCallback(int index);
 
+void closePulseEnabledBridgesEventCallback(int index);
+
 void openBridgeEventCallback(int bridge);
 
 void openBridgesEventCallback(int index);
+
+void openPulseEnabledBridgesEventCallback(int index);
 
 void removeIndexedBridgeCallback(int index);
 
