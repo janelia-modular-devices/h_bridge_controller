@@ -35,9 +35,20 @@ const uint32_t pulse_period = 25;
 const uint32_t pulse_on_duration = 4;
 const uint32_t pulse_count = 1;
 
+const bool polarity_reversed_default[BRIDGE_COUNT] = {false,false,false,false};
+
+const int pattern_count_min = 0;
+const int pattern_count_max = 100;
+const int pattern_positive_count_default = 1;
+const int pattern_negative_count_default = 1;
+
+
 CONSTANT_STRING(device_name,"h_bridge_controller");
 
 CONSTANT_STRING(duration_units_name,"ms");
+
+CONSTANT_STRING(pattern_positive_count,"pattern_positive_count");
+CONSTANT_STRING(pattern_negative_count,"pattern_negative_count");
 
 CONSTANT_STRING(bridge_parameter_name,"bridge");
 CONSTANT_STRING(positive_parameter_name,"positive");
@@ -48,12 +59,13 @@ CONSTANT_STRING(count_parameter_name,"count");
 CONSTANT_STRING(digital_input_parameter_name,"digital_input");
 CONSTANT_STRING(polarity_reversed_parameter_name,"polarity_reversed");
 CONSTANT_STRING(pulse_enabled_parameter_name,"pulse_enabled");
-CONSTANT_STRING(pattern_positive_count_parameter_name,"pattern_positive_count");
-CONSTANT_STRING(pattern_negative_count_parameter_name,"pattern_negative_count");
+CONSTANT_STRING(pattern_count_parameter_name,"pattern_count");
 
 CONSTANT_STRING(pulse_method_name,"pulse");
 CONSTANT_STRING(add_pwm_period_on_duration_method_name,"addPwmPeriodOnDuration");
 CONSTANT_STRING(get_digital_input_method_name,"getDigitalInput");
 CONSTANT_STRING(toggle_digital_output_method_name,"toggleDigitalOutput");
 CONSTANT_STRING(get_pulse_info_method_name,"getPulseInfo");
+CONSTANT_STRING(set_pattern_positive_count_method_name,"setPatternPositiveCount");
+CONSTANT_STRING(set_pattern_negative_count_method_name,"setPatternNegativeCount");
 }

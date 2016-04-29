@@ -39,7 +39,9 @@ public:
   bool getPolarityReversed(int bridge);
   bool getPulseEnabled(int bridge);
   int getPatternPositiveCount();
+  void setPatternPositiveCount(int pattern_count);
   int getPatternNegativeCount();
+  void setPatternNegativeCount(int pattern_count);
 private:
   ModularDevice::ModularServer modular_server_;
   SavedVariable saved_variables_[constants::SAVED_VARIABLE_COUNT_MAX];

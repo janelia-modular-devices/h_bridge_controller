@@ -13,7 +13,7 @@
 namespace constants
 {
 //MAX values must be >= 1, >= created/copied count, < RAM limit
-enum{SAVED_VARIABLE_COUNT_MAX=1};
+enum{SAVED_VARIABLE_COUNT_MAX=3};
 enum{PARAMETER_COUNT_MAX=16};
 enum{METHOD_COUNT_MAX=16};
 
@@ -46,7 +46,17 @@ extern const uint32_t pulse_period;
 extern const uint32_t pulse_on_duration;
 extern const uint32_t pulse_count;
 
+extern const bool polarity_reversed_default[BRIDGE_COUNT];
+
+extern const int pattern_count_min;
+extern const int pattern_count_max;
+extern const int pattern_positive_count_default;
+extern const int pattern_negative_count_default;
+
 extern ConstantString device_name;
+
+extern ConstantString pattern_positive_count;
+extern ConstantString pattern_negative_count;
 
 extern ConstantString duration_units_name;
 
@@ -59,13 +69,14 @@ extern ConstantString count_parameter_name;
 extern ConstantString digital_input_parameter_name;
 extern ConstantString polarity_reversed_parameter_name;
 extern ConstantString pulse_enabled_parameter_name;
-extern ConstantString pattern_positive_count_parameter_name;
-extern ConstantString pattern_negative_count_parameter_name;
+extern ConstantString pattern_count_parameter_name;
 
 extern ConstantString pulse_method_name;
 extern ConstantString add_pwm_period_on_duration_method_name;
 extern ConstantString get_digital_input_method_name;
 extern ConstantString toggle_digital_output_method_name;
 extern ConstantString get_pulse_info_method_name;
+extern ConstantString set_pattern_positive_count_method_name;
+extern ConstantString set_pattern_negative_count_method_name;
 }
 #endif

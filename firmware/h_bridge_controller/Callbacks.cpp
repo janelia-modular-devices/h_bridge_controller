@@ -84,8 +84,8 @@ void getPulseInfoCallback()
 {
   modular_server.writeResultKeyToResponse();
   modular_server.beginResponseObject();
-  modular_server.writeToResponse(constants::pattern_positive_count_parameter_name,controller.getPatternPositiveCount());
-  modular_server.writeToResponse(constants::pattern_negative_count_parameter_name,controller.getPatternNegativeCount());
+  modular_server.writeToResponse(constants::pattern_positive_count,controller.getPatternPositiveCount());
+  modular_server.writeToResponse(constants::pattern_negative_count,controller.getPatternNegativeCount());
   modular_server.writeToResponse(constants::period_parameter_name,constants::pulse_period);
   modular_server.writeToResponse(constants::on_duration_parameter_name,constants::pulse_on_duration);
 
@@ -108,6 +108,18 @@ void getPulseInfoCallback()
   modular_server.endResponseArray();
 
   modular_server.endResponseObject();
+}
+
+void setPatternPositiveCountCallback()
+{
+  long pattern_count = modular_server.getParameterValue(constants::pattern_count_parameter_name);
+  controller.setPatternPositiveCount(pattern_count);
+}
+
+void setPatternNegativeCountCallback()
+{
+  long pattern_count = modular_server.getParameterValue(constants::pattern_count_parameter_name);
+  controller.setPatternNegativeCount(pattern_count);
 }
 
 // Interrupt Callbacks

@@ -28,6 +28,10 @@ void toggleDigitalOutputCallback();
 
 void getPulseInfoCallback();
 
+void setPatternPositiveCountCallback();
+
+void setPatternNegativeCountCallback();
+
 // Interrupt Callbacks
 void toggle0Callback();
 

@@ -16,8 +16,6 @@ void Controller::setup()
 
   pulsing_ = false;
   incrementing_ = false;
-  pattern_positive_count_ = 10;
-  pattern_negative_count_ = 1;
   pattern_positive_inc_ = 0;
   pattern_negative_inc_ = 0;
   pattern_positive_ = true;
@@ -34,10 +32,6 @@ void Controller::setup()
     if (bridge < 2)
     {
       pulse_enabled_[bridge] = true;
-    }
-    if ((bridge%2) != 0)
-    {
-      bridge_polarity_reversed_[bridge] = true;
     }
   }
 
@@ -71,7 +65,17 @@ void Controller::setup()
   modular_server_.setMethodStorage(methods_);
 
   // Saved Variables
-  // modular_server_.createSavedVariable(constants::states_name,constants::states_array_default,constants::STATE_COUNT);
+  modular_server_.createSavedVariable(constants::polarity_reversed_parameter_name,constants::polarity_reversed_default,constants::BRIDGE_COUNT);
+  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+  {
+    modular_server_.getSavedVariableValue(constants::polarity_reversed_parameter_name,bridge_polarity_reversed_,bridge);
+  }
+
+  modular_server_.createSavedVariable(constants::pattern_positive_count,constants::pattern_positive_count_default);
+  modular_server_.getSavedVariableValue(constants::pattern_positive_count,pattern_positive_count_);
+
+  modular_server_.createSavedVariable(constants::pattern_negative_count,constants::pattern_negative_count_default);
+  modular_server_.getSavedVariableValue(constants::pattern_negative_count,pattern_negative_count_);
 
   // Parameters
   ModularDevice::Parameter& bridge_parameter = modular_server_.createParameter(constants::bridge_parameter_name);
@@ -98,6 +102,9 @@ void Controller::setup()
   ModularDevice::Parameter& digital_input_parameter = modular_server_.createParameter(constants::digital_input_parameter_name);
   digital_input_parameter.setRange(0,constants::DIGITAL_INPUT_COUNT-1);
 
+  ModularDevice::Parameter& pattern_count_parameter = modular_server_.createParameter(constants::pattern_count_parameter_name);
+  pattern_count_parameter.setRange(constants::pattern_count_min,constants::pattern_count_max);
+
   // Methods
   ModularDevice::Method& pulse_method = modular_server_.createMethod(constants::pulse_method_name);
   pulse_method.attachCallback(callbacks::pulseCallback);
@@ -122,6 +129,14 @@ void Controller::setup()
 
   ModularDevice::Method& get_pulse_info_method = modular_server_.createMethod(constants::get_pulse_info_method_name);
   get_pulse_info_method.attachCallback(callbacks::getPulseInfoCallback);
+
+  ModularDevice::Method& set_pattern_positive_count_method = modular_server_.createMethod(constants::set_pattern_positive_count_method_name);
+  set_pattern_positive_count_method.attachCallback(callbacks::setPatternPositiveCountCallback);
+  set_pattern_positive_count_method.addParameter(pattern_count_parameter);
+
+  ModularDevice::Method& set_pattern_negative_count_method = modular_server_.createMethod(constants::set_pattern_negative_count_method_name);
+  set_pattern_negative_count_method.attachCallback(callbacks::setPatternNegativeCountCallback);
+  set_pattern_negative_count_method.addParameter(pattern_count_parameter);
 
   // Setup Streams
   Serial.begin(constants::baudrate);
@@ -267,28 +282,37 @@ void Controller::incrementPattern()
 {
   if (!incrementing_)
   {
-    incrementing_ = true;
     if (pattern_positive_ && (pattern_positive_inc_ == pattern_positive_count_))
     {
-      pattern_positive_ = false;
+      if (pattern_negative_count_ > 0)
+      {
+        pattern_positive_ = false;
+      }
       pattern_positive_inc_ = 0;
     }
     else if (!pattern_positive_ && (pattern_negative_inc_ == pattern_negative_count_))
     {
-      pattern_positive_ = true;
+      if (pattern_positive_count_ > 0)
+      {
+        pattern_positive_ = true;
+      }
       pattern_negative_inc_ = 0;
     }
     if (pattern_positive_ && (pattern_positive_inc_ < pattern_positive_count_))
     {
       setBridgesPolarity(true);
+      incrementing_ = true;
       pulseBridges();
       ++pattern_positive_inc_;
+      Serial << "p\n";
     }
     else if (!pattern_positive_ && (pattern_negative_inc_ < pattern_negative_count_))
     {
       setBridgesPolarity(false);
+      incrementing_ = true;
       pulseBridges();
       ++pattern_negative_inc_;
+      Serial << "n\n";
     }
   }
 }
@@ -313,9 +337,33 @@ int Controller::getPatternPositiveCount()
   return pattern_positive_count_;
 }
 
+void Controller::setPatternPositiveCount(int pattern_count)
+{
+  modular_server_.setSavedVariableValue(constants::pattern_positive_count,pattern_count);
+  while (incrementing_)
+  {}
+  noInterrupts();
+  pattern_positive_count_ = pattern_count;
+  pattern_positive_inc_ = 0;
+  pattern_negative_inc_ = 0;
+  interrupts();
+}
+
 int Controller::getPatternNegativeCount()
 {
   return pattern_negative_count_;
+}
+
+void Controller::setPatternNegativeCount(int pattern_count)
+{
+  modular_server_.setSavedVariableValue(constants::pattern_negative_count,pattern_count);
+  while (incrementing_)
+  {}
+  noInterrupts();
+  pattern_negative_count_ = pattern_count;
+  pattern_positive_inc_ = 0;
+  pattern_negative_inc_ = 0;
+  interrupts();
 }
 
 Controller controller;
