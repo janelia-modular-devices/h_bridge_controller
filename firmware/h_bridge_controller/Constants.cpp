@@ -47,6 +47,8 @@ CONSTANT_STRING(device_name,"h_bridge_controller");
 
 CONSTANT_STRING(duration_units_name,"ms");
 
+CONSTANT_STRING(invalid_array_length_error,"Invalid array length.");
+
 CONSTANT_STRING(pattern_positive_count,"pattern_positive_count");
 CONSTANT_STRING(pattern_negative_count,"pattern_negative_count");
 
@@ -66,6 +68,7 @@ CONSTANT_STRING(add_pwm_period_on_duration_method_name,"addPwmPeriodOnDuration")
 CONSTANT_STRING(get_digital_input_method_name,"getDigitalInput");
 CONSTANT_STRING(toggle_digital_output_method_name,"toggleDigitalOutput");
 CONSTANT_STRING(get_pulse_info_method_name,"getPulseInfo");
+CONSTANT_STRING(set_polarity_reversed_method_name,"setPolarityReversed");
 CONSTANT_STRING(set_pattern_positive_count_method_name,"setPatternPositiveCount");
 CONSTANT_STRING(set_pattern_negative_count_method_name,"setPatternNegativeCount");
 }

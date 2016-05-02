@@ -99,6 +99,14 @@ void Controller::setup()
   ModularDevice::Parameter& digital_input_parameter = modular_server_.createParameter(constants::digital_input_parameter_name);
   digital_input_parameter.setRange(0,constants::DIGITAL_INPUT_COUNT-1);
 
+  ModularDevice::Parameter& polarity_reversed_parameter = modular_server_.createParameter(constants::polarity_reversed_parameter_name);
+  polarity_reversed_parameter.setTypeArray();
+  polarity_reversed_parameter.setTypeBool();
+
+  ModularDevice::Parameter& pulse_enabled_parameter = modular_server_.createParameter(constants::pulse_enabled_parameter_name);
+  pulse_enabled_parameter.setTypeArray();
+  pulse_enabled_parameter.setTypeBool();
+
   ModularDevice::Parameter& pattern_count_parameter = modular_server_.createParameter(constants::pattern_count_parameter_name);
   pattern_count_parameter.setRange(constants::pattern_count_min,constants::pattern_count_max);
 
@@ -126,6 +134,10 @@ void Controller::setup()
 
   ModularDevice::Method& get_pulse_info_method = modular_server_.createMethod(constants::get_pulse_info_method_name);
   get_pulse_info_method.attachCallback(callbacks::getPulseInfoCallback);
+
+  ModularDevice::Method& set_polarity_reversed_method = modular_server_.createMethod(constants::set_polarity_reversed_method_name);
+  set_polarity_reversed_method.attachCallback(callbacks::setPolarityReversedCallback);
+  set_polarity_reversed_method.addParameter(polarity_reversed_parameter);
 
   ModularDevice::Method& set_pattern_positive_count_method = modular_server_.createMethod(constants::set_pattern_positive_count_method_name);
   set_pattern_positive_count_method.attachCallback(callbacks::setPatternPositiveCountCallback);
@@ -323,7 +335,14 @@ void Controller::setIncrementingFalse()
 
 bool Controller::getPolarityReversed(int bridge)
 {
+  modular_server_.getSavedVariableValue(constants::polarity_reversed_parameter_name,bridge_polarity_reversed_);
   return bridge_polarity_reversed_[bridge];
+}
+
+void Controller::setPolarityReversed(int bridge, bool reversed)
+{
+  bridge_polarity_reversed_[bridge] = reversed;
+  modular_server_.setSavedVariableValue(constants::polarity_reversed_parameter_name,bridge_polarity_reversed_,bridge);
 }
 
 bool Controller::getPulseEnabled(int bridge)

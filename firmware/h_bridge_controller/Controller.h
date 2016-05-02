@@ -37,6 +37,7 @@ public:
   void incrementPattern();
   void setIncrementingFalse();
   bool getPolarityReversed(int bridge);
+  void setPolarityReversed(int bridge, bool reversed);
   bool getPulseEnabled(int bridge);
   int getPatternPositiveCount();
   void setPatternPositiveCount(int pattern_count);

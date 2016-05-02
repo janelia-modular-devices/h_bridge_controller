@@ -55,6 +55,8 @@ extern const int pattern_negative_count_default;
 
 extern ConstantString device_name;
 
+extern ConstantString invalid_array_length_error;
+
 extern ConstantString pattern_positive_count;
 extern ConstantString pattern_negative_count;
 
@@ -76,6 +78,7 @@ extern ConstantString add_pwm_period_on_duration_method_name;
 extern ConstantString get_digital_input_method_name;
 extern ConstantString toggle_digital_output_method_name;
 extern ConstantString get_pulse_info_method_name;
+extern ConstantString set_polarity_reversed_method_name;
 extern ConstantString set_pattern_positive_count_method_name;
 extern ConstantString set_pattern_negative_count_method_name;
 }

@@ -110,6 +110,23 @@ void getPulseInfoCallback()
   modular_server.endResponseObject();
 }
 
+void setPolarityReversedCallback()
+{
+  ArduinoJson::JsonArray& polarity_reversed = modular_server.getParameterValue(constants::polarity_reversed_parameter_name);
+  int length = polarity_reversed.size();
+  if (length == constants::BRIDGE_COUNT)
+  {
+    for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+    {
+      controller.setPolarityReversed(bridge,polarity_reversed[bridge]);
+    }
+  }
+  else
+  {
+    modular_server.sendErrorResponse(constants::invalid_array_length_error);
+  }
+}
+
 void setPatternPositiveCountCallback()
 {
   long pattern_count = modular_server.getParameterValue(constants::pattern_count_parameter_name);

@@ -28,6 +28,8 @@ void toggleDigitalOutputCallback();
 
 void getPulseInfoCallback();
 
+void setPolarityReversedCallback();
+
 void setPatternPositiveCountCallback();
 
 void setPatternNegativeCountCallback();
