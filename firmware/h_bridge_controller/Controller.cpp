@@ -292,7 +292,7 @@ void Controller::incrementPattern()
   if (!incrementing_)
   {
     int pattern_positive_count = getPatternPositiveCount();
-    int pattern_negative_count = getPatternPositiveCount();
+    int pattern_negative_count = getPatternNegativeCount();
     if (pattern_positive_ && (pattern_positive_inc_ == pattern_positive_count))
     {
       if (pattern_negative_count > 0)
@@ -315,7 +315,6 @@ void Controller::incrementPattern()
       incrementing_ = true;
       pulseBridges();
       ++pattern_positive_inc_;
-      Serial << "p\n";
     }
     else if (!pattern_positive_ && (pattern_negative_inc_ < pattern_negative_count))
     {
@@ -323,7 +322,6 @@ void Controller::incrementPattern()
       incrementing_ = true;
       pulseBridges();
       ++pattern_negative_inc_;
-      Serial << "n\n";
     }
   }
 }
