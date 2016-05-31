@@ -18,59 +18,63 @@
 
 namespace callbacks
 {
-void pulseCallback();
+// void pulseCallback();
 
-void addPwmPeriodOnDurationCallback();
+// void addPwmPeriodOnDurationCallback();
 
-void getDigitalInputCallback();
+// void getDigitalInputCallback();
 
-void toggleDigitalOutputCallback();
+// void toggleDigitalOutputCallback();
 
-void getPulseInfoCallback();
+// void getPulseInfoCallback();
 
-void setPolarityReversedCallback();
+// void setPolarityReversedCallback();
 
-void setPatternPositiveCountCallback();
+// void setPatternPositiveCountCallback();
 
-void setPatternNegativeCountCallback();
+// void setPatternNegativeCountCallback();
 
 // Interrupt Callbacks
-void toggle0Callback();
+// void toggle0Callback();
 
-void toggle1Callback();
+// void toggle1Callback();
 
-void togglePulseBridgesCallback();
+// void togglePulseBridgesCallback();
 
 void incrementPatternCallback();
 
 // EventController Callbacks
-void toggleCloseBridgeEventCallback(int bridge);
+// void toggleCloseBridgeEventCallback(int bridge);
 
-void toggleCloseBridgesEventCallback(int index);
+// void toggleCloseBridgesEventCallback(int index);
 
-void closeBridgeEventCallback(int bridge);
+// void closeBridgeEventCallback(int bridge);
 
-void closeBridgesEventCallback(int index);
+// void closeBridgesEventCallback(int index);
 
-void closePulseEnabledBridgesEventCallback(int index);
+// void closePulseEnabledBridgesEventCallback(int index);
 
-void openBridgeEventCallback(int bridge);
+void closePatternEnabledBridgesEventCallback(int index);
 
-void openBridgesEventCallback(int index);
+// void openBridgeEventCallback(int bridge);
 
-void openPulseEnabledBridgesEventCallback(int index);
+// void openBridgesEventCallback(int index);
 
-void removeIndexedBridgeCallback(int index);
+// void openPulseEnabledBridgesEventCallback(int index);
 
-void startTogglePulseEventCallback(int index);
+void openPatternEnabledBridgesEventCallback(int index);
 
-void stopTogglePulseEventCallback(int index);
+// void removeIndexedBridgeCallback(int index);
+
+// void startTogglePulseEventCallback(int index);
+
+// void stopTogglePulseEventCallback(int index);
 
 void stopPulseEventCallback(int index);
 
-void ledOnEventCallback(int index);
+// void ledOnEventCallback(int index);
 
-void ledOffEventCallback(int index);
+// void ledOffEventCallback(int index);
 
 }
 #endif
