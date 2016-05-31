@@ -66,12 +66,15 @@ void Controller::setup()
 
   ModularDevice::Field& pattern_start_delay_field = modular_server_.createField(constants::pattern_start_delay_field_name,constants::pattern_start_delay_default);
   pattern_start_delay_field.setRange(constants::duration_min,constants::duration_max);
+  pattern_start_delay_field.setUnits(constants::duration_units_name);
 
   ModularDevice::Field& pattern_pulse_period_field = modular_server_.createField(constants::pattern_pulse_period_field_name,constants::pattern_pulse_period_default);
   pattern_pulse_period_field.setRange(constants::pattern_pulse_period_min,constants::duration_max);
+  pattern_pulse_period_field.setUnits(constants::duration_units_name);
 
   ModularDevice::Field& pattern_pulse_on_duration_field = modular_server_.createField(constants::pattern_pulse_on_duration_field_name,constants::pattern_pulse_on_duration_default);
   pattern_pulse_on_duration_field.setRange(constants::pattern_pulse_on_duration_min,constants::duration_max);
+  pattern_pulse_on_duration_field.setUnits(constants::duration_units_name);
 
   ModularDevice::Field& pattern_positive_count_field = modular_server_.createField(constants::pattern_positive_count_field_name,constants::pattern_positive_count_default);
   pattern_positive_count_field.setRange(constants::pattern_count_min,constants::pattern_count_max);
