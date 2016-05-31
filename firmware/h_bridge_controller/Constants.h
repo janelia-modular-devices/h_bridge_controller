@@ -62,6 +62,7 @@ extern const long pattern_pulse_period_min;
 extern const long pattern_pulse_period_default;
 
 extern ConstantString pattern_pulse_on_duration_field_name;
+extern const long pattern_pulse_on_duration_min;
 extern const long pattern_pulse_on_duration_default;
 
 extern ConstantString pattern_positive_count_field_name;

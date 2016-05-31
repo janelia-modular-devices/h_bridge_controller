@@ -60,7 +60,7 @@ void Controller::setup()
   modular_server_.addServerStream(Serial);
 
   // Set Storage
-  modular_server_.setSavedVariableStorage(fields_);
+  modular_server_.setFieldStorage(fields_);
   modular_server_.setParameterStorage(parameters_);
   modular_server_.setMethodStorage(methods_);
 
@@ -312,7 +312,7 @@ void Controller::openPatternEnabledBridges()
                                 pattern_enabled);
   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
   {
-    if (pattern_enabled_[bridge])
+    if (pattern_enabled[bridge])
     {
       openBridge(bridge);
     }
@@ -391,12 +391,12 @@ void Controller::incrementPattern()
 {
   if (!incrementing_)
   {
-    long pattern_positive_count_duration;
-    modular_server_.getFieldValue(constants::pattern_positive_count_duration_field_name,
-                                  pattern_positive_count_duration);
-    long pattern_negative_count_duration;
-    modular_server_.getFieldValue(constants::pattern_negative_count_duration_field_name,
-                                  pattern_negative_count_duration);
+    long pattern_positive_count;
+    modular_server_.getFieldValue(constants::pattern_positive_count_field_name,
+                                  pattern_positive_count);
+    long pattern_negative_count;
+    modular_server_.getFieldValue(constants::pattern_negative_count_field_name,
+                                  pattern_negative_count);
     if (pattern_positive_ && (pattern_positive_inc_ == pattern_positive_count))
     {
       if (pattern_negative_count > 0)
