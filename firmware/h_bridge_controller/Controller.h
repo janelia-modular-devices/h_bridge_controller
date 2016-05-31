@@ -23,30 +23,18 @@ public:
   void setBridgePolarity(int bridge, bool positive);
   void setBridgesPolarity(bool positive);
   void setPatternBridgesPolarity(bool positive);
-  // void toggleBridgePolarity(int bridge);
-  // void toggleBridgesPolarity();
+  void toggleBridgePolarity(int bridge);
+  void toggleBridgesPolarity();
   void closeBridge(int bridge);
   void closeBridges();
-  // void closePulseEnabledBridges();
   void closePatternEnabledBridges();
   void openBridge(int bridge);
   void openBridges();
-  // void openPulseEnabledBridges();
   void openPatternEnabledBridges();
-  // int getDigitalInput(int digital_input);
-  // void toggleDigitalOutput(int digital_output);
-  // void pulseBridges();
   void patternPulseBridges();
   void setPulsingFalse();
   void incrementPattern();
   void setIncrementingFalse();
-  // bool getPolarityReversed(int bridge);
-  // void setPolarityReversed(int bridge, bool reversed);
-  // bool getPulseEnabled(int bridge);
-  // int getPatternPositiveCount();
-  // void setPatternPositiveCount(int pattern_count);
-  // int getPatternNegativeCount();
-  // void setPatternNegativeCount(int pattern_count);
 private:
   ModularDevice::ModularServer modular_server_;
 
@@ -55,13 +43,9 @@ private:
   ModularDevice::Method methods_[constants::METHOD_COUNT_MAX];
 
   volatile bool bridge_polarity_[constants::BRIDGE_COUNT];
-  // bool bridge_polarity_reversed_[constants::BRIDGE_COUNT];
-  // bool pulse_enabled_[constants::BRIDGE_COUNT];
   volatile int output_state_[constants::DIGITAL_OUTPUT_COUNT];
   volatile bool pulsing_;
   volatile bool incrementing_;
-  // int pattern_positive_count_;
-  // int pattern_negative_count_;
   volatile long pattern_positive_inc_;
   volatile long pattern_negative_inc_;
   volatile bool pattern_positive_;

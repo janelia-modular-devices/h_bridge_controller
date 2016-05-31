@@ -28,11 +28,6 @@ void Controller::setup()
     pinMode(constants::dir_a_pins[bridge],OUTPUT);
     pinMode(constants::dir_b_pins[bridge],OUTPUT);
     setBridgePolarity(bridge,true);
-    // bridge_polarity_[bridge] = true;
-    // if (bridge < 2)
-    // {
-    //   pulse_enabled_[bridge] = true;
-    // }
   }
 
   for (int digital_input=0; digital_input<constants::DIGITAL_INPUT_COUNT; ++digital_input)
@@ -84,87 +79,41 @@ void Controller::setup()
   ModularDevice::Field& pattern_negative_count_field = modular_server_.createField(constants::pattern_negative_count_field_name,constants::pattern_negative_count_default);
   pattern_negative_count_field.setRange(constants::pattern_count_min,constants::pattern_count_max);
 
-  // modular_server_.createSavedVariable(constants::polarity_reversed_parameter_name,constants::polarity_reversed_default,constants::BRIDGE_COUNT);
-  // modular_server_.getSavedVariableValue(constants::polarity_reversed_parameter_name,bridge_polarity_reversed_);
-
-  // modular_server_.createSavedVariable(constants::pattern_positive_count,constants::pattern_positive_count_default);
-  // modular_server_.getSavedVariableValue(constants::pattern_positive_count,pattern_positive_count_);
-
-  // modular_server_.createSavedVariable(constants::pattern_negative_count,constants::pattern_negative_count_default);
-  // modular_server_.getSavedVariableValue(constants::pattern_negative_count,pattern_negative_count_);
-
   // Parameters
-  // ModularDevice::Parameter& bridge_parameter = modular_server_.createParameter(constants::bridge_parameter_name);
-  // bridge_parameter.setRange(0,constants::BRIDGE_COUNT-1);
+  ModularDevice::Parameter& bridge_parameter = modular_server_.createParameter(constants::bridge_parameter_name);
+  bridge_parameter.setRange(0,constants::BRIDGE_COUNT-1);
 
-  // ModularDevice::Parameter& positive_parameter = modular_server_.createParameter(constants::positive_parameter_name);
-  // positive_parameter.setTypeBool();
+  ModularDevice::Parameter& positive_parameter = modular_server_.createParameter(constants::positive_parameter_name);
+  positive_parameter.setTypeBool();
 
-  // ModularDevice::Parameter& duration_parameter = modular_server_.createParameter(constants::duration_parameter_name);
-  // duration_parameter.setRange(constants::duration_min,constants::duration_max);
-  // duration_parameter.setUnits(constants::duration_units_name);
+  ModularDevice::Parameter& duration_parameter = modular_server_.createParameter(constants::duration_parameter_name);
+  duration_parameter.setRange(constants::duration_min,constants::duration_max);
+  duration_parameter.setUnits(constants::duration_units_name);
 
-  // ModularDevice::Parameter& on_duration_parameter = modular_server_.createParameter(constants::on_duration_parameter_name);
-  // on_duration_parameter.setRange(constants::duration_min,constants::duration_max);
-  // on_duration_parameter.setUnits(constants::duration_units_name);
+  ModularDevice::Parameter& on_duration_parameter = modular_server_.createParameter(constants::on_duration_parameter_name);
+  on_duration_parameter.setRange(constants::duration_min,constants::duration_max);
+  on_duration_parameter.setUnits(constants::duration_units_name);
 
-  // ModularDevice::Parameter& period_parameter = modular_server_.createParameter(constants::period_parameter_name);
-  // period_parameter.setRange(constants::duration_min,constants::duration_max);
-  // period_parameter.setUnits(constants::duration_units_name);
+  ModularDevice::Parameter& period_parameter = modular_server_.createParameter(constants::period_parameter_name);
+  period_parameter.setRange(constants::duration_min,constants::duration_max);
+  period_parameter.setUnits(constants::duration_units_name);
 
-  // ModularDevice::Parameter& count_parameter = modular_server_.createParameter(constants::count_parameter_name);
-  // count_parameter.setRange(constants::duration_min,constants::duration_max);
-
-  // ModularDevice::Parameter& digital_input_parameter = modular_server_.createParameter(constants::digital_input_parameter_name);
-  // digital_input_parameter.setRange(0,constants::DIGITAL_INPUT_COUNT-1);
-
-  // ModularDevice::Parameter& polarity_reversed_parameter = modular_server_.createParameter(constants::polarity_reversed_parameter_name);
-  // polarity_reversed_parameter.setTypeArray();
-  // polarity_reversed_parameter.setTypeBool();
-
-  // ModularDevice::Parameter& pulse_enabled_parameter = modular_server_.createParameter(constants::pulse_enabled_parameter_name);
-  // pulse_enabled_parameter.setTypeArray();
-  // pulse_enabled_parameter.setTypeBool();
-
-  // ModularDevice::Parameter& pattern_count_parameter = modular_server_.createParameter(constants::pattern_count_parameter_name);
-  // pattern_count_parameter.setRange(constants::pattern_count_min,constants::pattern_count_max);
+  ModularDevice::Parameter& count_parameter = modular_server_.createParameter(constants::count_parameter_name);
+  count_parameter.setRange(constants::duration_min,constants::duration_max);
 
   // Methods
-  // ModularDevice::Method& pulse_method = modular_server_.createMethod(constants::pulse_method_name);
-  // pulse_method.attachCallback(callbacks::pulseCallback);
-  // pulse_method.addParameter(bridge_parameter);
-  // pulse_method.addParameter(positive_parameter);
-  // pulse_method.addParameter(duration_parameter);
+  ModularDevice::Method& pulse_method = modular_server_.createMethod(constants::pulse_method_name);
+  pulse_method.attachCallback(callbacks::pulseCallback);
+  pulse_method.addParameter(bridge_parameter);
+  pulse_method.addParameter(positive_parameter);
+  pulse_method.addParameter(duration_parameter);
 
-  // ModularDevice::Method& add_pwm_period_on_duration_method = modular_server_.createMethod(constants::add_pwm_period_on_duration_method_name);
-  // add_pwm_period_on_duration_method.attachCallback(callbacks::addPwmPeriodOnDurationCallback);
-  // add_pwm_period_on_duration_method.addParameter(bridge_parameter);
-  // add_pwm_period_on_duration_method.addParameter(period_parameter);
-  // add_pwm_period_on_duration_method.addParameter(on_duration_parameter);
-  // add_pwm_period_on_duration_method.addParameter(count_parameter);
-
-  // ModularDevice::Method& get_digital_input_method = modular_server_.createMethod(constants::get_digital_input_method_name);
-  // get_digital_input_method.attachCallback(callbacks::getDigitalInputCallback);
-  // get_digital_input_method.addParameter(digital_input_parameter);
-  // get_digital_input_method.setReturnTypeBool();
-
-  // ModularDevice::Method& toggle_digital_output_method = modular_server_.createMethod(constants::toggle_digital_output_method_name);
-  // toggle_digital_output_method.attachCallback(callbacks::toggleDigitalOutputCallback);
-
-  // ModularDevice::Method& get_pulse_info_method = modular_server_.createMethod(constants::get_pulse_info_method_name);
-  // get_pulse_info_method.attachCallback(callbacks::getPulseInfoCallback);
-
-  // ModularDevice::Method& set_polarity_reversed_method = modular_server_.createMethod(constants::set_polarity_reversed_method_name);
-  // set_polarity_reversed_method.attachCallback(callbacks::setPolarityReversedCallback);
-  // set_polarity_reversed_method.addParameter(polarity_reversed_parameter);
-
-  // ModularDevice::Method& set_pattern_positive_count_method = modular_server_.createMethod(constants::set_pattern_positive_count_method_name);
-  // set_pattern_positive_count_method.attachCallback(callbacks::setPatternPositiveCountCallback);
-  // set_pattern_positive_count_method.addParameter(pattern_count_parameter);
-
-  // ModularDevice::Method& set_pattern_negative_count_method = modular_server_.createMethod(constants::set_pattern_negative_count_method_name);
-  // set_pattern_negative_count_method.attachCallback(callbacks::setPatternNegativeCountCallback);
-  // set_pattern_negative_count_method.addParameter(pattern_count_parameter);
+  ModularDevice::Method& add_pwm_period_on_duration_method = modular_server_.createMethod(constants::add_pwm_period_on_duration_method_name);
+  add_pwm_period_on_duration_method.attachCallback(callbacks::addPwmPeriodOnDurationCallback);
+  add_pwm_period_on_duration_method.addParameter(bridge_parameter);
+  add_pwm_period_on_duration_method.addParameter(period_parameter);
+  add_pwm_period_on_duration_method.addParameter(on_duration_parameter);
+  add_pwm_period_on_duration_method.addParameter(count_parameter);
 
   // Setup Streams
   Serial.begin(constants::baudrate);
@@ -229,19 +178,19 @@ void Controller::setPatternBridgesPolarity(bool positive)
   }
 }
 
-// void Controller::toggleBridgePolarity(int bridge)
-// {
-//   bridge_polarity_[bridge] = !bridge_polarity_[bridge];
-//   setBridgePolarity(bridge,bridge_polarity_[bridge]);
-// }
+void Controller::toggleBridgePolarity(int bridge)
+{
+  bool bridge_polarity = !bridge_polarity_[bridge];
+  setBridgePolarity(bridge,bridge_polarity);
+}
 
-// void Controller::toggleBridgesPolarity()
-// {
-//   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
-//   {
-//     toggleBridgePolarity(bridge);
-//   }
-// }
+void Controller::toggleBridgesPolarity()
+{
+  for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
+  {
+    toggleBridgePolarity(bridge);
+  }
+}
 
 void Controller::closeBridge(int bridge)
 {
@@ -255,17 +204,6 @@ void Controller::closeBridges()
     closeBridge(bridge);
   }
 }
-
-// void Controller::closePulseEnabledBridges()
-// {
-//   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
-//   {
-//     if (pulse_enabled_[bridge])
-//     {
-//       closeBridge(bridge);
-//     }
-//   }
-// }
 
 void Controller::closePatternEnabledBridges()
 {
@@ -294,17 +232,6 @@ void Controller::openBridges()
   }
 }
 
-// void Controller::openPulseEnabledBridges()
-// {
-//   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
-//   {
-//     if (pulse_enabled_[bridge])
-//     {
-//       openBridge(bridge);
-//     }
-//   }
-// }
-
 void Controller::openPatternEnabledBridges()
 {
   bool pattern_enabled[constants::BRIDGE_COUNT];
@@ -318,43 +245,6 @@ void Controller::openPatternEnabledBridges()
     }
   }
 }
-
-// int Controller::getDigitalInput(int digital_input)
-// {
-//   return digitalRead(constants::di_pins[digital_input]);
-// }
-
-// void Controller::toggleDigitalOutput(int digital_output)
-// {
-//   output_state_[digital_output] = ((output_state_[digital_output] == LOW) ? HIGH : LOW);
-//   digitalWrite(constants::do_pins[digital_output],output_state_[digital_output]);
-// }
-
-// void Controller::pulseBridges()
-// {
-//   if (!pulsing_)
-//   {
-//     pulsing_ = true;
-//     long pattern_start_delay;
-//     modular_server_.getFieldValue(constants::pattern_start_delay_field_name,
-//                                   pattern_start_delay);
-//     long pattern_pulse_period;
-//     modular_server_.getFieldValue(constants::pattern_pulse_period_field_name,
-//                                   pattern_pulse_period);
-//     long pattern_pulse_on_duration;
-//     modular_server_.getFieldValue(constants::pattern_pulse_on_duration_field_name,
-//                                   pattern_pulse_on_duration);
-//     EventController::event_controller.addPwmUsingDelayPeriodOnDuration(callbacks::closePulseEnabledBridgesEventCallback,
-//                                                                        callbacks::openPulseEnabledBridgesEventCallback,
-//                                                                        pattern_start_delay,
-//                                                                        pattern_pulse_period,
-//                                                                        pattern_pulse_on_duration,
-//                                                                        constants::pattern_pulse_count,
-//                                                                        -1,
-//                                                                        NULL,
-//                                                                        callbacks::stopPulseEventCallback);
-//   }
-// }
 
 void Controller::patternPulseBridges()
 {
@@ -434,58 +324,5 @@ void Controller::setIncrementingFalse()
 {
   incrementing_ = false;
 }
-
-// bool Controller::getPolarityReversed(int bridge)
-// {
-//   modular_server_.getSavedVariableValue(constants::polarity_reversed_parameter_name,bridge_polarity_reversed_);
-//   return bridge_polarity_reversed_[bridge];
-// }
-
-// void Controller::setPolarityReversed(int bridge, bool reversed)
-// {
-//   bridge_polarity_reversed_[bridge] = reversed;
-//   modular_server_.setSavedVariableValue(constants::polarity_reversed_parameter_name,bridge_polarity_reversed_,bridge);
-// }
-
-// bool Controller::getPulseEnabled(int bridge)
-// {
-//   return pulse_enabled_[bridge];
-// }
-
-// int Controller::getPatternPositiveCount()
-// {
-//   modular_server_.getSavedVariableValue(constants::pattern_positive_count,pattern_positive_count_);
-//   return pattern_positive_count_;
-// }
-
-// void Controller::setPatternPositiveCount(int pattern_count)
-// {
-//   modular_server_.setSavedVariableValue(constants::pattern_positive_count,pattern_count);
-//   while (incrementing_)
-//   {}
-//   noInterrupts();
-//   pattern_positive_count_ = pattern_count;
-//   pattern_positive_inc_ = 0;
-//   pattern_negative_inc_ = 0;
-//   interrupts();
-// }
-
-// int Controller::getPatternNegativeCount()
-// {
-//   modular_server_.getSavedVariableValue(constants::pattern_negative_count,pattern_negative_count_);
-//   return pattern_negative_count_;
-// }
-
-// void Controller::setPatternNegativeCount(int pattern_count)
-// {
-//   modular_server_.setSavedVariableValue(constants::pattern_negative_count,pattern_count);
-//   while (incrementing_)
-//   {}
-//   noInterrupts();
-//   pattern_negative_count_ = pattern_count;
-//   pattern_positive_inc_ = 0;
-//   pattern_negative_inc_ = 0;
-//   interrupts();
-// }
 
 Controller controller;

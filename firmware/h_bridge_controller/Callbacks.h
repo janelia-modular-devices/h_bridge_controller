@@ -18,63 +18,33 @@
 
 namespace callbacks
 {
-// void pulseCallback();
+void pulseCallback();
 
-// void addPwmPeriodOnDurationCallback();
-
-// void getDigitalInputCallback();
-
-// void toggleDigitalOutputCallback();
-
-// void getPulseInfoCallback();
-
-// void setPolarityReversedCallback();
-
-// void setPatternPositiveCountCallback();
-
-// void setPatternNegativeCountCallback();
+void addPwmPeriodOnDurationCallback();
 
 // Interrupt Callbacks
-// void toggle0Callback();
-
-// void toggle1Callback();
-
-// void togglePulseBridgesCallback();
-
 void incrementPatternCallback();
 
 // EventController Callbacks
-// void toggleCloseBridgeEventCallback(int bridge);
+void toggleCloseBridgeEventCallback(int bridge);
 
-// void toggleCloseBridgesEventCallback(int index);
+void toggleCloseBridgesEventCallback(int index);
 
-// void closeBridgeEventCallback(int bridge);
+void closeBridgeEventCallback(int bridge);
 
-// void closeBridgesEventCallback(int index);
-
-// void closePulseEnabledBridgesEventCallback(int index);
+void closeBridgesEventCallback(int index);
 
 void closePatternEnabledBridgesEventCallback(int index);
 
-// void openBridgeEventCallback(int bridge);
+void openBridgeEventCallback(int bridge);
 
-// void openBridgesEventCallback(int index);
-
-// void openPulseEnabledBridgesEventCallback(int index);
+void openBridgesEventCallback(int index);
 
 void openPatternEnabledBridgesEventCallback(int index);
 
-// void removeIndexedBridgeCallback(int index);
-
-// void startTogglePulseEventCallback(int index);
-
-// void stopTogglePulseEventCallback(int index);
+void removeIndexedBridgeCallback(int index);
 
 void stopPulseEventCallback(int index);
-
-// void ledOnEventCallback(int index);
-
-// void ledOffEventCallback(int index);
 
 }
 #endif
