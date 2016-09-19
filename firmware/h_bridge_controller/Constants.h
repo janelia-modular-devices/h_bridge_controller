@@ -51,7 +51,7 @@ extern const long duration_min;
 extern const long duration_max;
 
 // Fields
-// Field values must be long, double, bool, long[], double[], bool[], char[]
+// Field values must be long, double, bool, long[], double[], bool[], char[], ConstantString *
 extern ConstantString polarity_reversed_field_name;
 extern const bool polarity_reversed_default[BRIDGE_COUNT];
 
