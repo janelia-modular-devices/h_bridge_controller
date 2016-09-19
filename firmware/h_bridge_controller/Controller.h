@@ -18,7 +18,7 @@ public:
   Controller();
   void setup();
   void update();
-  ModularDevice::ModularServer& getModularServer();
+  ModularDevice::ModularServer & getModularServer();
 
   void setBridgePolarity(int bridge, bool positive);
   void setBridgesPolarity(bool positive);
@@ -49,6 +49,8 @@ private:
   volatile long pattern_positive_inc_;
   volatile long pattern_negative_inc_;
   volatile bool pattern_positive_;
+
+  bool increment_enabled_;
 };
 
 extern Controller controller;

@@ -27,6 +27,8 @@ const size_t sense_pins[BRIDGE_COUNT] = {0,1,2,3};
 const size_t di_pins[DIGITAL_INPUT_COUNT] = {21,20,2};
 const size_t do_pins[DIGITAL_OUTPUT_COUNT] = {48,3};
 
+const size_t enable_increment_pin = 5;
+
 const uint32_t start_delay = 10;
 
 const uint32_t pattern_pulse_count = 1;

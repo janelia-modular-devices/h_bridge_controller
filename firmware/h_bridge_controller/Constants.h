@@ -38,6 +38,8 @@ extern const size_t sense_pins[BRIDGE_COUNT];
 extern const size_t di_pins[DIGITAL_INPUT_COUNT];
 extern const size_t do_pins[DIGITAL_OUTPUT_COUNT];
 
+extern const size_t enable_increment_pin;
+
 extern const uint32_t start_delay;
 
 extern const uint32_t pattern_pulse_count;

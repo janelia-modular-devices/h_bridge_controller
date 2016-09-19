@@ -19,6 +19,7 @@ void Controller::setup()
   pattern_positive_inc_ = 0;
   pattern_negative_inc_ = 0;
   pattern_positive_ = true;
+  increment_enabled_ = true;
 
   // Pin Setup
   for (int bridge=0; bridge<constants::BRIDGE_COUNT; ++bridge)
@@ -32,8 +33,7 @@ void Controller::setup()
 
   for (int digital_input=0; digital_input<constants::DIGITAL_INPUT_COUNT; ++digital_input)
   {
-    pinMode(constants::di_pins[digital_input],INPUT);
-    digitalWrite(constants::di_pins[digital_input],HIGH);
+    pinMode(constants::di_pins[digital_input],INPUT_PULLUP);
   }
 
   for (int digital_output=0; digital_output<constants::DIGITAL_OUTPUT_COUNT; ++digital_output)
@@ -45,6 +45,8 @@ void Controller::setup()
 
   attachInterrupt(digitalPinToInterrupt(constants::di_pins[0]),callbacks::incrementPatternCallback,FALLING);
   attachInterrupt(digitalPinToInterrupt(constants::di_pins[1]),callbacks::incrementPatternCallback,FALLING);
+
+  pinMode(constants::enable_increment_pin,INPUT_PULLUP);
 
   // Device Info
   modular_server_.setName(constants::device_name);
@@ -60,58 +62,58 @@ void Controller::setup()
   modular_server_.setMethodStorage(methods_);
 
   // Fields
-  ModularDevice::Field& polarity_reversed_field = modular_server_.createField(constants::polarity_reversed_field_name,constants::polarity_reversed_default);
+  ModularDevice::Field & polarity_reversed_field = modular_server_.createField(constants::polarity_reversed_field_name,constants::polarity_reversed_default);
 
-  ModularDevice::Field& pattern_enabled_field = modular_server_.createField(constants::pattern_enabled_field_name,constants::pattern_enabled_default);
+  ModularDevice::Field & pattern_enabled_field = modular_server_.createField(constants::pattern_enabled_field_name,constants::pattern_enabled_default);
 
-  ModularDevice::Field& pattern_start_delay_field = modular_server_.createField(constants::pattern_start_delay_field_name,constants::pattern_start_delay_default);
+  ModularDevice::Field & pattern_start_delay_field = modular_server_.createField(constants::pattern_start_delay_field_name,constants::pattern_start_delay_default);
   pattern_start_delay_field.setRange(constants::duration_min,constants::duration_max);
   pattern_start_delay_field.setUnits(constants::duration_units_name);
 
-  ModularDevice::Field& pattern_pulse_period_field = modular_server_.createField(constants::pattern_pulse_period_field_name,constants::pattern_pulse_period_default);
+  ModularDevice::Field & pattern_pulse_period_field = modular_server_.createField(constants::pattern_pulse_period_field_name,constants::pattern_pulse_period_default);
   pattern_pulse_period_field.setRange(constants::pattern_pulse_period_min,constants::duration_max);
   pattern_pulse_period_field.setUnits(constants::duration_units_name);
 
-  ModularDevice::Field& pattern_pulse_on_duration_field = modular_server_.createField(constants::pattern_pulse_on_duration_field_name,constants::pattern_pulse_on_duration_default);
+  ModularDevice::Field & pattern_pulse_on_duration_field = modular_server_.createField(constants::pattern_pulse_on_duration_field_name,constants::pattern_pulse_on_duration_default);
   pattern_pulse_on_duration_field.setRange(constants::pattern_pulse_on_duration_min,constants::duration_max);
   pattern_pulse_on_duration_field.setUnits(constants::duration_units_name);
 
-  ModularDevice::Field& pattern_positive_count_field = modular_server_.createField(constants::pattern_positive_count_field_name,constants::pattern_positive_count_default);
+  ModularDevice::Field & pattern_positive_count_field = modular_server_.createField(constants::pattern_positive_count_field_name,constants::pattern_positive_count_default);
   pattern_positive_count_field.setRange(constants::pattern_count_min,constants::pattern_count_max);
 
-  ModularDevice::Field& pattern_negative_count_field = modular_server_.createField(constants::pattern_negative_count_field_name,constants::pattern_negative_count_default);
+  ModularDevice::Field & pattern_negative_count_field = modular_server_.createField(constants::pattern_negative_count_field_name,constants::pattern_negative_count_default);
   pattern_negative_count_field.setRange(constants::pattern_count_min,constants::pattern_count_max);
 
   // Parameters
-  ModularDevice::Parameter& bridge_parameter = modular_server_.createParameter(constants::bridge_parameter_name);
+  ModularDevice::Parameter & bridge_parameter = modular_server_.createParameter(constants::bridge_parameter_name);
   bridge_parameter.setRange(0,constants::BRIDGE_COUNT-1);
 
-  ModularDevice::Parameter& positive_parameter = modular_server_.createParameter(constants::positive_parameter_name);
+  ModularDevice::Parameter & positive_parameter = modular_server_.createParameter(constants::positive_parameter_name);
   positive_parameter.setTypeBool();
 
-  ModularDevice::Parameter& duration_parameter = modular_server_.createParameter(constants::duration_parameter_name);
+  ModularDevice::Parameter & duration_parameter = modular_server_.createParameter(constants::duration_parameter_name);
   duration_parameter.setRange(constants::duration_min,constants::duration_max);
   duration_parameter.setUnits(constants::duration_units_name);
 
-  ModularDevice::Parameter& on_duration_parameter = modular_server_.createParameter(constants::on_duration_parameter_name);
+  ModularDevice::Parameter & on_duration_parameter = modular_server_.createParameter(constants::on_duration_parameter_name);
   on_duration_parameter.setRange(constants::duration_min,constants::duration_max);
   on_duration_parameter.setUnits(constants::duration_units_name);
 
-  ModularDevice::Parameter& period_parameter = modular_server_.createParameter(constants::period_parameter_name);
+  ModularDevice::Parameter & period_parameter = modular_server_.createParameter(constants::period_parameter_name);
   period_parameter.setRange(constants::duration_min,constants::duration_max);
   period_parameter.setUnits(constants::duration_units_name);
 
-  ModularDevice::Parameter& count_parameter = modular_server_.createParameter(constants::count_parameter_name);
+  ModularDevice::Parameter & count_parameter = modular_server_.createParameter(constants::count_parameter_name);
   count_parameter.setRange(constants::duration_min,constants::duration_max);
 
   // Methods
-  ModularDevice::Method& pulse_method = modular_server_.createMethod(constants::pulse_method_name);
+  ModularDevice::Method & pulse_method = modular_server_.createMethod(constants::pulse_method_name);
   pulse_method.attachCallback(callbacks::pulseCallback);
   pulse_method.addParameter(bridge_parameter);
   pulse_method.addParameter(positive_parameter);
   pulse_method.addParameter(duration_parameter);
 
-  ModularDevice::Method& add_pwm_period_on_duration_method = modular_server_.createMethod(constants::add_pwm_period_on_duration_method_name);
+  ModularDevice::Method & add_pwm_period_on_duration_method = modular_server_.createMethod(constants::add_pwm_period_on_duration_method_name);
   add_pwm_period_on_duration_method.attachCallback(callbacks::addPwmPeriodOnDurationCallback);
   add_pwm_period_on_duration_method.addParameter(bridge_parameter);
   add_pwm_period_on_duration_method.addParameter(period_parameter);
@@ -129,9 +131,10 @@ void Controller::setup()
 void Controller::update()
 {
   modular_server_.handleServerRequests();
+  increment_enabled_ = digitalRead(constants::enable_increment_pin);
 }
 
-ModularDevice::ModularServer& Controller::getModularServer()
+ModularDevice::ModularServer & Controller::getModularServer()
 {
   return modular_server_;
 }
@@ -282,7 +285,7 @@ void Controller::setPulsingFalse()
 
 void Controller::incrementPattern()
 {
-  if (!incrementing_)
+  if (!incrementing_ && increment_enabled_)
   {
     long pattern_positive_count;
     modular_server_.getFieldValue(constants::pattern_positive_count_field_name,
