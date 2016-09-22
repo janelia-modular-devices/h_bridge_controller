@@ -22,13 +22,18 @@ enum {INDEXED_BRIDGES_COUNT_MAX=4};
 enum {DIGITAL_INPUT_COUNT=3};
 enum {DIGITAL_OUTPUT_COUNT=2};
 
-extern const size_t baudrate;
-
-extern const size_t model_number;
-
+extern ConstantString device_name;
+extern ConstantString firmware_name;
 extern const long firmware_major;
 extern const long firmware_minor;
 extern const long firmware_patch;
+
+extern const size_t baudrate;
+
+extern const size_t model_number;
+extern ConstantString hardware_name;
+extern const long hardware_major;
+extern const long hardware_minor;
 
 extern const size_t enable_pins[BRIDGE_COUNT];
 extern const size_t dir_a_pins[BRIDGE_COUNT];
@@ -43,8 +48,6 @@ extern const size_t enable_increment_pin;
 extern const uint32_t start_delay;
 
 extern const uint32_t pattern_pulse_count;
-
-extern ConstantString device_name;
 
 extern ConstantString duration_units_name;
 extern const long duration_min;

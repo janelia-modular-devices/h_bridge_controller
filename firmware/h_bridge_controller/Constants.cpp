@@ -10,14 +10,30 @@
 
 namespace constants
 {
-const size_t baudrate = 9600;
-
-const size_t model_number = 1170;
-
+CONSTANT_STRING(device_name,"h_bridge_controller");
+CONSTANT_STRING(firmware_name,"h_bridge_controller");
 // Use semantic versioning http://semver.org/
 const long firmware_major = 0;
 const long firmware_minor = 1;
 const long firmware_patch = 0;
+
+const size_t baudrate = 9600;
+
+#if defined(__AVR_ATmega1280__) || defined(__AVR_ATmega2560__)
+
+const size_t model_number = 1170;
+CONSTANT_STRING(hardware_name,"mega");
+const long hardware_major = 0;
+const long hardware_minor = 0;
+
+#elif defined(__MK20DX128__) || defined(__MK20DX256__)
+
+const size_t model_number = 0;
+CONSTANT_STRING(hardware_name,"teensy");
+const long hardware_major = 0;
+const long hardware_minor = 0;
+
+#endif
 
 const size_t enable_pins[BRIDGE_COUNT] = {8,9,10,11};
 const size_t dir_a_pins[BRIDGE_COUNT] = {30,32,34,36};
@@ -32,8 +48,6 @@ const size_t enable_increment_pin = 5;
 const uint32_t start_delay = 10;
 
 const uint32_t pattern_pulse_count = 1;
-
-CONSTANT_STRING(device_name,"h_bridge_controller");
 
 CONSTANT_STRING(duration_units_name,"ms");
 const long duration_min = 1;

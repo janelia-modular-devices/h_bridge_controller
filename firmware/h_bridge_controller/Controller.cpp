@@ -49,9 +49,12 @@ void Controller::setup()
   pinMode(constants::enable_increment_pin,INPUT_PULLUP);
 
   // Device Info
-  modular_server_.setName(constants::device_name);
+  modular_server_.setDeviceName(constants::device_name);
   modular_server_.setModelNumber(constants::model_number);
+  modular_server_.setFirmwareName(constants::firmware_name);
   modular_server_.setFirmwareVersion(constants::firmware_major,constants::firmware_minor,constants::firmware_patch);
+  modular_server_.setHardwareName(constants::hardware_name);
+  modular_server_.setHardwareVersion(constants::hardware_major,constants::hardware_minor);
 
   // Add Server Streams
   modular_server_.addServerStream(Serial);
