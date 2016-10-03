@@ -1,0 +1,3 @@
+[submodule "firmware/HBridgeController"]
+	path = firmware/HBridgeController
+	url = https://github.com/janelia-arduino/HBridgeController.git
