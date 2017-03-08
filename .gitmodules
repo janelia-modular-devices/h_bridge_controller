@@ -4,3 +4,6 @@
 [submodule "firmware/RungWheelController"]
 	path = firmware/RungWheelController
 	url = https://github.com/janelia-arduino/RungWheelController.git
+[submodule "hardware/h_bridge_controller_3x2"]
+	path = hardware/h_bridge_controller_3x2
+	url = https://github.com/janelia-kicad/h_bridge_controller_3x2.git
